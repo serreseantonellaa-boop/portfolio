@@ -1,0 +1,24 @@
+---
+import GrainHero from '../components/GrainHero.jsx';
+import '../styles/global.css';
+---
+<div class="decor-banner">
+  <!-- el shader llena el alto del contenedor -->
+  <GrainHero client:load height="100%" />
+  
+</div>
+
+<style>
+  /* controla TODO con CSS acá */
+  *{
+    padding: 0;
+    margin:0;
+  }
+  .decor-banner{
+    height: clamp(140px, 28vh, 240px); /* ajustá la altura */
+    width: 100%;
+    overflow: clip;                    /* o hidden si tu navegador no soporta clip */
+
+  }
+  
+</style>

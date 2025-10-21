@@ -1,0 +1,37 @@
+/* src/styles/global.css */
+@import "tailwindcss";
+
+/* Cargamos ambas tipografías */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&family=Space+Grotesk:wght@400;600;700&display=swap');
+
+:root{
+  --bg:#0b0b12;          /* fondo negro */
+  --fg:#ffffff;          /* texto blanco */
+  --font-sans:"Montserrat", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  --font-display:"Space Grotesk", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+}
+
+html, body { height:100%; }
+* { box-sizing:border-box; }
+
+body{
+  margin:0;
+  padding:0;
+  background:var(--bg);
+  color:var(--fg);
+  font-family:var(--font-sans);   /* Montserrat por defecto */
+  color-scheme:dark;
+}
+
+/* Usa Space Grotesk para headings (y para quien necesites) */
+:where(h1, h2, h3, .font-display){
+  font-family:var(--font-display);
+  letter-spacing:-0.01em;
+}
+.wrap{
+  position: relative;
+  display: inline-block;
+  width: var(--size, 18px);
+  height: var(--size, 18px);
+  pointer-events: none; /* el canvas no roba el click del <a> */
+}
