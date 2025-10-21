@@ -1,0 +1,16 @@
+---
+import '../styles/global.css';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro'; // si aún no lo tenés, podés crear uno simple
+---
+<Nav />
+
+<!-- Slot opcional para tu banner decorativo debajo del nav -->
+<slot name="decor" />
+
+<!-- Contenido propio de cada página -->
+<main class="mx-auto max-w-6xl px-4 py-6">
+  <slot />
+</main>
+
+<Footer />

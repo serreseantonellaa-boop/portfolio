@@ -1,0 +1,8 @@
+---
+// src/components/DecorBanner.astro
+import GrainHero from '../components/GrainHero.jsx';
+const { height = 'clamp(140px, 28vh, 240px)' } = Astro.props;
+---
+<div class="w-full overflow-hidden" style={`height:${height}`}>
+  <GrainHero client:load height="100%" />
+</div>

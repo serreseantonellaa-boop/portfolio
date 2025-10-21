@@ -2,6 +2,7 @@
 import Base from '../layouts/Base.astro';
 import GrainHero from '../components/GrainHero.jsx';
 import '../styles/global.css';
+import HyperOffset from '../components/HyperOffset.astro';
 
 const LINKS = [
   { href: '/about', label: 'About' },
@@ -18,21 +19,12 @@ const LINKS = [
         Antonella Serrese
       </h1>
       <p class="mt-2 text-white/85 text-[clamp(2rem,4vw,1.25rem)]">
-        Diseño, UX/UI y Tecnología Multimedial
+        Programación y Diseño Multimedial
       </p>
-    <div class="mt-6 flex flex-col items-start gap-3 sm:flex-row sm:gap-4">
-     <a href="/proyectos"
-     class="inline-flex items-center justify-start w-44 rounded-xl border border-white/30 px-4 py-2 text-base font-medium hover:bg-white/10">
-       Proyectos
-      </a>
-      <a href="/about"
-       class="inline-flex items-center justify-start w-44 rounded-xl border border-white/30 px-4 py-2 text-base font-medium hover:bg-white/10">
-      About
-      </a>
-      <a href="/contacto"
-     class="inline-flex items-center justify-start w-44 rounded-xl border border-white/30 px-4 py-2 text-base font-medium hover:bg-white/10">
-      Contacto
-     </a>
+  <div class="mt-6 flex flex-col items-start gap-3 sm:flex-row sm:gap-4">
+     <HyperOffset href="/proyectos" variant="in">Proyectos</HyperOffset>
+     <HyperOffset href="/about"     variant="in">About</HyperOffset>
+     <HyperOffset href="/contacto"  variant="iin">Contacto</HyperOffset>
 </div>
     </section>
   </GrainHero>

@@ -1,0 +1,18 @@
+---
+const {
+  href = '#',
+  color = 'bg-yellow-500',   // cambiá por 'bg-pink-500', 'bg-cyan-500', etc.
+  variant = 'in',            // 'in' (entra al hover) | 'out' (sale al hover)
+  label = '',
+  class: extra = '',
+} = Astro.props;
+
+const moveIn  = 'translate-x-1.5 translate-y-1.5 group-hover:translate-x-0 group-hover:translate-y-0';
+const moveOut = 'translate-x-0 translate-y-0 group-hover:translate-x-1.5 group-hover:translate-y-1.5';
+---
+<a href={href} class={`group relative inline-block focus:outline-none focus:ring-2 focus:ring-yellow-400/60 ${extra}`}>
+  <span class={`absolute inset-0 ${variant === 'out' ? moveOut : moveIn} ${color} transition-transform duration-300`}></span>
+  <span class="relative inline-block border-2 border-current px-8 py-3 text-sm font-bold tracking-widest uppercase">
+    {label || Astro.slots.default ? <slot /> : 'Button'}
+  </span>
+</a>
