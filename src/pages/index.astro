@@ -1,7 +1,6 @@
 ---
 import Base from '../layouts/Base.astro';
 import GrainHero from '../components/GrainHero.jsx';
-import LiquidBg from '../components/LiquidBg.jsx';
 import '../styles/global.css';
 
 const LINKS = [
@@ -14,32 +13,27 @@ const LINKS = [
   <!-- Hero fullscreen -->
   <GrainHero client:load height="100dvh">
     <section class="relative mx-auto max-w-6xl px-4 pt-28 sm:pt-36">
+      <!-- Tamaño FLUIDO: grande en mobile, enorme en desktop -->
       <h1 class="font-extrabold leading-tight text-[clamp(3.5rem,9vw,5rem)]" style="font-family:'Space Grotesk', system-ui, sans-serif">
         Antonella Serrese
       </h1>
       <p class="mt-2 text-white/85 text-[clamp(2rem,4vw,1.25rem)]">
         Diseño, UX/UI y Tecnología Multimedial
       </p>
-
-      <div class="mt-6 flex flex-col items-start gap-3 sm:flex-row sm:gap-4">
-        <a href="/proyectos"
-           class="relative inline-flex items-center justify-start w-44 rounded-xl border border-white/30 px-4 py-2 text-base font-medium overflow-hidden hover:bg-white/5">
-          <LiquidBg client:idle colorTint="#8b5cf6" />
-          <span class="relative z-10">Proyectos</span>
-        </a>
-
-        <a href="/about"
-           class="relative inline-flex items-center justify-start w-44 rounded-xl border border-white/30 px-4 py-2 text-base font-medium overflow-hidden hover:bg-white/5">
-          <LiquidBg client:idle colorTint="#f472b6" />
-          <span class="relative z-10">About</span>
-        </a>
-
-        <a href="/contacto"
-           class="relative inline-flex items-center justify-start w-44 rounded-xl border border-white/30 px-4 py-2 text-base font-medium overflow-hidden hover:bg-white/5">
-          <LiquidBg client:idle colorTint="#fde047" />
-          <span class="relative z-10">Contacto</span>
-        </a>
-      </div>
+    <div class="mt-6 flex flex-col items-start gap-3 sm:flex-row sm:gap-4">
+     <a href="/proyectos"
+     class="inline-flex items-center justify-start w-44 rounded-xl border border-white/30 px-4 py-2 text-base font-medium hover:bg-white/10">
+       Proyectos
+      </a>
+      <a href="/about"
+       class="inline-flex items-center justify-start w-44 rounded-xl border border-white/30 px-4 py-2 text-base font-medium hover:bg-white/10">
+      About
+      </a>
+      <a href="/contacto"
+     class="inline-flex items-center justify-start w-44 rounded-xl border border-white/30 px-4 py-2 text-base font-medium hover:bg-white/10">
+      Contacto
+     </a>
+</div>
     </section>
   </GrainHero>
 </Base>
