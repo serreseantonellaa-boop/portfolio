@@ -1,12 +1,13 @@
 ---
-
-import '../styles/global.css';
-import Nav from '../components/Nav.astro';
+// src/pages/contacto.astro
+import SiteLayout from '../layouts/SiteLayout.astro';
 import DecorBanner from '../components/DecorBanner.astro';
 ---
-<Nav />
-<main class="mx-auto max-w-6xl px-4 py-6">
-  <DecorBanner />
-  <h1 class="mt-8 text-3xl font-extrabold font-display">Contacto</h1>
-  <!-- contenido de proyectos irá acá -->
-</main>
+<SiteLayout>
+  <Fragment slot="decor">
+    <DecorBanner />
+  </Fragment>
+
+  <h1 class="text-3xl font-extrabold font-display">Contacto</h1>
+  <!-- tu contenido de contacto -->
+</SiteLayout>
