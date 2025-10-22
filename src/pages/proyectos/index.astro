@@ -1,10 +1,13 @@
 ---
+import Base from '../../layouts/Base.astro';
 import SiteLayout from '../../layouts/SiteLayout.astro';
 import DecorBanner from '../../components/DecorBanner.astro';
 ---
-<SiteLayout>
-  <Fragment slot="decor"><DecorBanner /></Fragment>
+<Base>
+  <SiteLayout>
+    <Fragment slot="decor"><DecorBanner /></Fragment>
 
-  <h1 class="text-3xl font-extrabold font-display">Proyectos</h1>
-  <!-- contenido de proyectos -->
-</SiteLayout>
+    <h1 class="text-3xl font-extrabold font-display">Proyectos</h1>
+    <!-- contenido -->
+  </SiteLayout>
+</Base>
