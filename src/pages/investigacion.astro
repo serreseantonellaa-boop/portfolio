@@ -7,89 +7,340 @@ import DecorBanner from '../components/DecorBanner.astro';
   <SiteLayout>
     <Fragment slot="decor"><DecorBanner /></Fragment>
 
-    <h1 class="text-3xl font-extrabold font-display text-left mb-8">Investigación</h1>
+    <h1 class="text-3xl font-extrabold font-display text-left mb-20">Investigación</h1>
+    
+    <style>
+      /* Ocultar "Ver más" cuando el details está abierto */
+      details[open] summary {
+        display: none;
+      }
+    </style>
     
     <!-- TESIS -->
-    <section class="mb-16">
-      <h2 class="text-2xl font-bold mb-4">Monomarentalidad y Tecnopoética</h2>
-      <p class="text-white/80 mb-6">
-        Tesis de licenciatura que explora cómo la tecnopoética puede funcionar 
-        como herramienta de justicia social al visibilizar la problemática de 
-        las jefas de hogares monomarentales en Argentina. Una instalación 
-        multimedial inmersiva que traduce datos y testimonios en experiencia 
-        sensible mediante sonido espacial, visualizaciones y narrativa interactiva.
-      </p>
+    <article class="mb-16">
+      <!-- Layout responsive: columna en mobile, lado a lado en desktop -->
+      <div class="flex flex-col lg:flex-row lg:items-center gap-10 lg:px-12 lg:max-w-6xl lg:mx-auto">
+        <!-- Columna izquierda: Texto + Botones -->
+        <div class="flex-1 flex flex-col">
+          <h2 class="text-2xl font-bold mb-3 text-pink-400">Monomarentalidad y Tecnopoética</h2>
+          <p class="text-lg text-white/60 mb-4 italic">Cuando los datos necesitan cuerpo para ser comprendidos</p>
+          
+          <p class="text-white/80 mb-3">
+            Hay realidades que las estadísticas cuentan pero que no se sienten. En Argentina, más de 1.600.000 hogares están encabezados por mujeres que crían solas, sostienen trabajos precarizados y cargan con una doble o triple jornada invisible.
+          </p>
+          
+          <p class="text-white/80 mb-3">
+            Los números están, los informes técnicos también. Pero la magnitud del desgaste cotidiano - esa sensación de que el día nunca alcanza, de que siempre falta algo - no se transmite en un gráfico.
+          </p>
+          
+          <details class="text-white/80 mb-6">
+            <summary class="cursor-pointer text-pink-400 hover:text-pink-300 inline">
+              Ver más...
+            </summary>
+            <div class="mt-3 space-y-3">
+              <p>
+                Esta tesis busca traducir esa experiencia en una instalación multimedial inmersiva. No para "ilustrar" datos, sino para que quien entre pueda <strong>sentir en el cuerpo</strong> lo que significa sostener todo eso: el ruido mental constante, las notificaciones que no paran, las decisiones financieras imposibles, el tiempo que corre sin tregua.
+              </p>
+              <p>
+                La propuesta combina sonido espacial, visualizaciones narrativas y una interfaz interactiva que simula la presión de organizar un presupuesto mientras las urgencias explotan desde todos lados. La hipótesis es clara: si logramos diseñar una experiencia tecnopoética que conmueva y haga pensar, podemos cambiar la manera en que se percibe la monomarentalidad - no solo que "se sepa", sino que "se sienta".
+              </p>
+              <p>
+                El proyecto está en desarrollo. Por ahora comparto ilustraciones conceptuales que exploran la sobrecarga cognitiva y emocional como punto de partida visual.
+              </p>
+            </div>
+            <button class="text-pink-400 hover:text-pink-300 mt-3 cursor-pointer" onclick="this.closest('details').removeAttribute('open')">
+              Ver menos
+            </button>
+          </details>
 
-      <!-- Ilustraciones - MOBILE FIRST -->
-      <div class="flex flex-col sm:flex-row gap-4 mb-6">
-        <img 
-          src="/images/tesis/boceto1.png" 
-          alt="Ilustración conceptual - Sobrecarga mental" 
-          class="rounded-lg w-full sm:w-64 h-auto hover:scale-105 transition-transform duration-300"
-        />
-        <img 
-          src="/images/tesis/boceto2.png" 
-          alt="Ilustración conceptual - Agotamiento" 
-          class="rounded-lg w-full sm:w-64 h-auto hover:scale-105 transition-transform duration-300"
-        />
+          <!-- Botones alineados al ancho del texto -->
+          <div class="flex flex-col sm:flex-row gap-3">
+            <a 
+              href="/docs/presentacion-tesis.pdf" 
+              class="inline-block px-4 py-2 bg-pink-500/20 text-pink-400 rounded-lg hover:bg-pink-500/30 transition text-center text-sm"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Ver presentación del proyecto →
+            </a>
+            <span class="inline-block px-4 py-2 bg-white/5 text-white/60 rounded-lg text-center text-sm">
+              Tesis en desarrollo
+            </span>
+          </div>
+        </div>
+
+        <!-- Columna derecha: Imagen + Epígrafe -->
+        <div class="flex-shrink-0 flex flex-col items-center lg:items-start lg:w-auto">
+          <img 
+            src="/images/tesis/boceto1.jpg" 
+            alt="Ilustración conceptual - Sobrecarga mental" 
+            class="rounded-lg w-full max-w-[250px] lg:max-w-[220px] h-auto hover:scale-105 transition-transform duration-300 mb-2"
+            loading="lazy"
+          />
+          <p class="text-white/50 text-xs italic max-w-[250px] lg:max-w-[220px]">
+            Ilustración conceptual: representación visual de la sobrecarga cognitiva y emocional
+          </p>
+        </div>
       </div>
+    </article>
 
-      <p class="text-white/60 text-sm italic mb-4">
-        Ilustraciones conceptuales: representación visual de la sobrecarga cognitiva y emocional
-      </p>
-
-      <div class="flex flex-col sm:flex-row gap-4">
-        <a 
-          href="#" 
-          class="inline-block px-4 py-2 bg-pink-500/20 text-pink-400 rounded-lg hover:bg-pink-500/30 transition text-center"
-        >
-          Ver presentación del proyecto →
-        </a>
-        <span class="inline-block px-4 py-2 bg-white/5 text-white/60 rounded-lg text-center">
-          Tesis en desarrollo
-        </span>
+    <!-- Separador -->
+    <div class="relative flex items-center justify-center mb-16 lg:px-12 lg:max-w-6xl lg:mx-auto">
+      <div class="absolute inset-0 flex items-center">
+        <div class="w-full border-t border-gradient" style="border-image: linear-gradient(90deg, transparent, rgb(236, 72, 153), transparent) 1;"></div>
       </div>
-    </section>
-
-    <!-- CURSO P5.JS -->
-    <section class="mb-16">
-      <h2 class="text-2xl font-bold mb-4">Curso de p5.js · PMII · UMAI</h2>
-      <p class="text-white/80 mb-6">
-        Proyecto pedagógico completo para enseñar programación creativa 
-        orientada al diseño. Incluye plan de estudios estructurado en 3 clases, 
-        materiales didácticos interactivos, repositorios de ejemplo y documentación 
-        de 13 piezas creadas durante el cuatrimestre.
-      </p>
-      
-      <details class="mb-6 bg-white/5 rounded-lg p-5 hover:bg-white/10 transition">
-        <summary class="cursor-pointer text-pink-400 font-semibold text-lg">
-          📚 Ver contenidos del curso
-        </summary>
-        <ul class="mt-4 text-white/70 space-y-2 ml-4">
-          <li><strong>Clase 1:</strong> Lienzo fullscreen, composición y color con figuras primitivas</li>
-          <li><strong>Clase 2:</strong> Gestión de medios (imágenes, audio, fuentes) y animación</li>
-          <li><strong>Clase 3:</strong> p5.Vector para movimiento e interacción (mouse/teclado)</li>
-          <li><strong>Material:</strong> 13 piezas + repositorios funcionales + muestra virtual</li>
-        </ul>
-      </details>
-      
-      <div class="flex flex-col sm:flex-row gap-4">
-        <a 
-          href="https://muestra-virtual-2025.vercel.app/" 
-          class="inline-block px-4 py-2 bg-pink-500 text-white rounded-lg hover:bg-pink-600 transition text-center"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Ver muestra virtual →
-        </a>
-        <a 
-          href="#" 
-          class="inline-block px-4 py-2 bg-pink-500/20 text-pink-400 rounded-lg hover:bg-pink-500/30 transition text-center"
-        >
-          Ver documentación completa →
-        </a>
+      <div class="relative px-4 bg-[#0b0b12]">
+        <span class="text-pink-400 text-xl">◆</span>
       </div>
-    </section>
+    </div>
+
+    <!-- P5.JS -->
+    <article class="mb-16">
+      <!-- Layout responsive: columna en mobile, lado a lado en desktop -->
+      <div class="flex flex-col lg:flex-row lg:items-center gap-10 lg:px-12 lg:max-w-6xl lg:mx-auto">
+        <!-- Columna izquierda: Texto + Details + Botones -->
+        <div class="flex-1 flex flex-col">
+          <h2 class="text-2xl font-bold mb-4 text-pink-400">¿Programar puede ser accesible para cualquiera?</h2>
+          
+          <p class="text-white/80 mb-3">
+            Diseñé este proyecto para responder una pregunta que me acompaña desde que empecé a dar clases: ¿es posible que alguien sin experiencia técnica pueda crear algo propio, interactivo y expresivo en pocas semanas?
+          </p>
+          
+          <p class="text-white/80 mb-3">
+            La programación tradicional pone barreras altas: sintaxis compleja, errores crípticos, curvas de aprendizaje empinadas. Eso aleja a mucha gente que tiene ideas valiosas pero no acceso a las herramientas para materializarlas.
+          </p>
+          
+          <details class="text-white/80 mb-6">
+            <summary class="cursor-pointer text-pink-400 hover:text-pink-300 inline">
+              Ver más...
+            </summary>
+            <div class="mt-3 space-y-3">
+              <p>
+                <strong>Mi hipótesis fue simple:</strong> p5.js, por su diseño visual y su comunidad abierta, podría bajar esas barreras lo suficiente como para que estudiantes de diseño - sin formación previa en código - pudieran hacer arte digital publicable en tres clases.
+              </p>
+              <p>
+                Para probarlo, armé un plan de estudios de tres encuentros en Programación Multimedial II (Universidad Maimónides). Cada clase construía sobre la anterior: primero composición y color, después movimiento y sonido, finalmente interacción. Entre clase y clase, los estudiantes trabajaban con seguimiento semanal y llevaban bitácora de su proceso.
+              </p>
+              <p>
+                <strong>Los resultados fueron claros:</strong> en menos de dos meses, trece personas que nunca habían programado crearon piezas interactivas propias, las publicaron en la web y las mostraron públicamente. No hicieron "ejercicios de práctica" - hicieron <strong>obra</strong>.
+              </p>
+              <p>
+                Esto confirma algo importante: cuando las herramientas se diseñan pensando en bajar barreras y no en demostrar complejidad, la creatividad encuentra su camino.
+              </p>
+            </div>
+            <button class="text-pink-400 hover:text-pink-300 mt-3 cursor-pointer" onclick="this.closest('details').removeAttribute('open')">
+              Ver menos
+            </button>
+          </details>
+          
+          <!-- Details de metodología alineado al ancho del texto -->
+          <details class="mb-6 bg-white/5 rounded-lg p-4 hover:bg-white/10 transition">
+            <summary class="cursor-pointer text-pink-400 font-semibold">
+              📚 Metodología y estructura del estudio
+            </summary>
+            <div class="mt-3 text-white/70 text-sm space-y-2">
+              <p><strong>Modalidad:</strong> 3 clases presenciales de 3 horas cada 15 días, con seguimiento semanal y bitácora de progreso.</p>
+              <ul class="space-y-1 ml-4 mt-2">
+                <li>• <strong>Clase 1:</strong> Lienzo fullscreen, composición y color</li>
+                <li>• <strong>Clase 2:</strong> Gestión de medios y animación</li>
+                <li>• <strong>Clase 3:</strong> p5.Vector e interacción</li>
+              </ul>
+              <p class="mt-2"><strong>Resultados:</strong> 13 piezas + muestra virtual + repositorios funcionales</p>
+            </div>
+            <button class="text-pink-400 hover:text-pink-300 mt-3 cursor-pointer text-sm" onclick="this.closest('details').removeAttribute('open')">
+              Ver menos
+            </button>
+          </details>
+          
+          <!-- Botones alineados al ancho del texto -->
+          <div class="flex flex-col sm:flex-row gap-3">
+            <a 
+              href="https://muestra-virtual-2025.vercel.app/" 
+              class="inline-block px-4 py-2 bg-pink-500 text-white rounded-lg hover:bg-pink-600 transition text-center text-sm"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Ver muestra virtual →
+            </a>
+            <a 
+              href="/docs/curso-p5-documentacion.pdf" 
+              class="inline-block px-4 py-2 bg-pink-500/20 text-pink-400 rounded-lg hover:bg-pink-500/30 transition text-center text-sm"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Ver documentación completa →
+            </a>
+          </div>
+        </div>
+
+        <!-- Columna derecha: Imagen + Epígrafe -->
+        <div class="flex-shrink-0 flex flex-col items-center lg:items-start lg:w-auto">
+          <img 
+            src="/images/p5/muestra-virtual.jpg" 
+            alt="Muestra virtual - Grid de 13 piezas interactivas creadas por estudiantes" 
+            class="rounded-lg w-full max-w-[250px] lg:max-w-[220px] h-auto hover:scale-105 transition-transform duration-300 mb-2"
+            loading="lazy"
+          />
+          <p class="text-white/50 text-xs italic max-w-[250px] lg:max-w-[220px]">
+            Muestra virtual con las 13 piezas interactivas creadas por los estudiantes
+          </p>
+        </div>
+      </div>
+    </article>
+
+    <!-- Separador -->
+    <div class="relative flex items-center justify-center mb-16 lg:px-12 lg:max-w-6xl lg:mx-auto">
+      <div class="absolute inset-0 flex items-center">
+        <div class="w-full border-t border-gradient" style="border-image: linear-gradient(90deg, transparent, rgb(236, 72, 153), transparent) 1;"></div>
+      </div>
+      <div class="relative px-4 bg-[#0b0b12]">
+        <span class="text-pink-400 text-xl">◆</span>
+      </div>
+    </div>
+
+    <!-- HYDRA -->
+    <article class="mb-16">
+      <!-- Layout responsive: columna en mobile, lado a lado en desktop -->
+      <div class="flex flex-col lg:flex-row lg:items-center gap-10 lg:px-12 lg:max-w-6xl lg:mx-auto">
+        <!-- Columna izquierda: Texto + Botones -->
+        <div class="flex-1 flex flex-col">
+          <h2 class="text-2xl font-bold mb-3 text-pink-400">Hydra Audiovisual Lab</h2>
+          <p class="text-lg text-white/60 mb-4 italic">Explorar la programación desde lo visual y lo sensorial</p>
+          
+          <p class="text-white/80 mb-3">
+            Hydra es un entorno de live coding que invita a pensar la programación desde otro lugar: no hay errores que bloqueen, no hay compiladores que intimiden - hay síntesis visual en tiempo real, modulación, feedback, ritmo. Este taller-laboratorio propone experimentar qué se puede hacer cuando programar es componer visuales en vivo, y qué pasa cuando esas visuales se mezclan con sonido reactivo.
+          </p>
+          
+          <details class="text-white/80 mb-6">
+            <summary class="cursor-pointer text-pink-400 hover:text-pink-300 inline">
+              Ver más...
+            </summary>
+            <div class="mt-3 space-y-3">
+              <p>
+                La propuesta es exploratoria: aprender a construir sistemas visuales que respondan a señales de audio (amplitud, espectro, ritmo), pero desde un enfoque de laboratorio - prototipo, prueba, iteración, ajuste. Los estudiantes trabajan en equipos interdisciplinarios, articulando lo que aprenden en Hydra con las piezas sonoras que desarrollan en Estética del Sonido.
+              </p>
+              <p>
+                El objetivo no es solo "hacer que algo reaccione al audio", sino incorporar un flujo de trabajo creativo con código en tiempo real. Sin barreras técnicas: solo un navegador, experimentación y la libertad de probar. El resultado: piezas audiovisuales funcionales, documentadas y exhibibles - código que se convierte en experiencia sensorial.
+              </p>
+            </div>
+            <button class="text-pink-400 hover:text-pink-300 mt-3 cursor-pointer" onclick="this.closest('details').removeAttribute('open')">
+              Ver menos
+            </button>
+          </details>
+
+          <!-- Botones alineados al ancho del texto -->
+          <div class="flex flex-col sm:flex-row gap-3">
+            <a 
+              href="/docs/taller-hydra.pdf" 
+              class="inline-block px-4 py-2 bg-pink-500/20 text-pink-400 rounded-lg hover:bg-pink-500/30 transition text-center text-sm"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Ver propuesta del taller →
+            </a>
+          </div>
+        </div>
+
+        <!-- Columna derecha: Video + Epígrafe -->
+        <div class="flex-shrink-0 flex flex-col items-center lg:items-start lg:w-auto">
+          <video 
+            autoplay 
+            loop 
+            muted 
+            playsinline
+            class="rounded-lg w-full max-w-[250px] lg:max-w-[220px] h-auto mb-2"
+          >
+            <source src="/videos/hydra.mp4" type="video/mp4">
+          </video>
+          <p class="text-white/50 text-xs italic max-w-[250px] lg:max-w-[220px]">
+            Síntesis visual en tiempo real con Hydra
+          </p>
+        </div>
+      </div>
+    </article>
+
+    <!-- Separador -->
+    <div class="relative flex items-center justify-center mb-16 lg:px-12 lg:max-w-6xl lg:mx-auto">
+      <div class="absolute inset-0 flex items-center">
+        <div class="w-full border-t border-gradient" style="border-image: linear-gradient(90deg, transparent, rgb(236, 72, 153), transparent) 1;"></div>
+      </div>
+      <div class="relative px-4 bg-[#0b0b12]">
+        <span class="text-pink-400 text-xl">◆</span>
+      </div>
+    </div>
+
+    <!-- RECUÉRDALO (UX) -->
+    <article class="mb-16">
+      <!-- Layout responsive: columna en mobile, lado a lado en desktop -->
+      <div class="flex flex-col lg:flex-row lg:items-center gap-10 lg:px-12 lg:max-w-6xl lg:mx-auto">
+        <!-- Columna izquierda: Texto + Botones -->
+        <div class="flex-1 flex flex-col">
+          <h2 class="text-2xl font-bold mb-3 text-pink-400">Recuérdalo</h2>
+          <p class="text-lg text-white/60 mb-4 italic">Diseñar para la memoria y la dignidad</p>
+          
+          <p class="text-white/80 mb-3">
+            "Si no lo anoto, se me evapora." Esa frase de Marta, una de las personas que entrevisté para este proyecto, resume el problema que guió todo el diseño.
+          </p>
+          
+          <p class="text-white/80 mb-3">
+            Las personas mayores con deterioro cognitivo leve enfrentan micro-olvidos cotidianos: qué pastilla tomar, dónde está la orden médica, si ya avisaron a la familia. Las alarmas sin contexto se apagan, los papelitos se pierden, no hay registro de lo que efectivamente se hizo.
+          </p>
+          
+          <details class="text-white/80 mb-6">
+            <summary class="cursor-pointer text-pink-400 hover:text-pink-300 inline">
+              Ver más...
+            </summary>
+            <div class="mt-3 space-y-3">
+              <p>
+                Recuérdalo nació como una investigación de UX para entender cómo el diseño podía sostener autonomía sin infantilizar, dar tranquilidad sin perseguir. A través de entrevistas y card sorting, descubrí que el problema central no era "olvidar" sino <strong>la falta de contexto y de registro confiable</strong>.
+              </p>
+              <p>
+                La solución: una app que dice "qué y para qué" en cada recordatorio, permite marcar "hecho" con confirmación visual, y comparte el estado del día con la familia solo cuando falta algo - evitando las llamadas de control desgastantes.
+              </p>
+              <p>
+                El proyecto combina accesibilidad técnica (contraste, tipografía, zonas táctiles) y emocional (tono respetuoso, celebraciones sobrias, notificaciones por excepción). El resultado es un prototipo funcional que cuida tanto la tarea como la emoción: calma, dignidad y acompañamiento sostenido.
+              </p>
+            </div>
+            <button class="text-pink-400 hover:text-pink-300 mt-3 cursor-pointer" onclick="this.closest('details').removeAttribute('open')">
+              Ver menos
+            </button>
+          </details>
+
+          <!-- Botones alineados al ancho del texto -->
+          <div class="flex flex-col sm:flex-row gap-3">
+            <a 
+              href="#" 
+              class="inline-block px-4 py-2 bg-pink-500 text-white rounded-lg hover:bg-pink-600 transition text-center text-sm"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Ver prototipo navegable →
+            </a>
+            <a 
+              href="/docs/recuerdalo-investigacion.pdf" 
+              class="inline-block px-4 py-2 bg-pink-500/20 text-pink-400 rounded-lg hover:bg-pink-500/30 transition text-center text-sm"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Ver documentación completa →
+            </a>
+          </div>
+        </div>
+
+        <!-- Columna derecha: Imagen + Epígrafe -->
+        <div class="flex-shrink-0 flex flex-col items-center lg:items-start lg:w-auto">
+          <img 
+            src="/images/recuerdalo/app-screenshot.png" 
+            alt="Pantalla principal de la app Recuérdalo mostrando recordatorios del día" 
+            class="rounded-lg w-full max-w-[250px] lg:max-w-[220px] h-auto hover:scale-105 transition-transform duration-300 mb-2"
+            loading="lazy"
+          />
+          <p class="text-white/50 text-xs italic max-w-[250px] lg:max-w-[220px]">
+            Interfaz de la app: recordatorios con contexto y registro visual
+          </p>
+        </div>
+      </div>
+    </article>
 
   </SiteLayout>
 </Base>
