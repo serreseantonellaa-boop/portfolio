@@ -5,8 +5,9 @@ import '../styles/global.css';
 import HyperOffset from '../components/HyperOffset.astro';
 
 const LINKS = [
+  { href: '/obra', label: 'Obra' },
+  { href: '/investigacion', label: 'Investigación' },
   { href: '/about', label: 'About' },
-  { href: '/proyectos', label: 'Proyectos' },
   { href: '/contacto', label: 'Contacto' },
 ];
 ---
@@ -21,11 +22,12 @@ const LINKS = [
       <p class="mt-2 text-white/85 text-[clamp(2rem,4vw,1.25rem)]">
         Programación y Diseño Multimedial
       </p>
-  <div class="mt-6 flex flex-col items-start gap-3 sm:flex-row sm:gap-4">
-     <HyperOffset href="/proyectos" variant="in">Proyectos</HyperOffset>
-     <HyperOffset href="/about"     variant="in">About</HyperOffset>
-     <HyperOffset href="/contacto"  variant="iin">Contacto</HyperOffset>
-</div>
+      <div class="mt-6 flex flex-col items-start gap-3 sm:flex-row sm:gap-4">
+        <HyperOffset href="/obra" variant="in">Obra</HyperOffset>
+        <HyperOffset href="/investigacion" variant="in">Investigación</HyperOffset>
+        <HyperOffset href="/about" variant="in">About</HyperOffset>
+        <HyperOffset href="/contacto" variant="in">Contacto</HyperOffset>
+      </div>
     </section>
   </GrainHero>
 </Base>

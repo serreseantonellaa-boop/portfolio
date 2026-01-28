@@ -1,10 +1,12 @@
 ---
 // src/components/Nav.astro
 const LINKS = [
-  { href: '/proyectos', label: 'Proyectos' },
-  { href: '/about',     label: 'About' },
-  { href: '/contacto',  label: 'Contacto' },
+  { href: '/obra', label: 'Obra' },
+  { href: '/investigacion', label: 'Investigación' },
+  { href: '/about', label: 'About' },
+  { href: '/contacto', label: 'Contacto' },
 ];
+
 const isActive = (href) => Astro.url.pathname.startsWith(href);
 ---
 <header class="sticky top-0 z-50 bg-[#0b0b12]/70 backdrop-blur">

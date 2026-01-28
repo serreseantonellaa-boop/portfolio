@@ -1,0 +1,95 @@
+---
+import Base from '../layouts/Base.astro';
+import SiteLayout from '../layouts/SiteLayout.astro';
+import DecorBanner from '../components/DecorBanner.astro';
+---
+<Base>
+  <SiteLayout>
+    <Fragment slot="decor"><DecorBanner /></Fragment>
+
+    <h1 class="text-3xl font-extrabold font-display text-left mb-8">Investigación</h1>
+    
+    <!-- TESIS -->
+    <section class="mb-16">
+      <h2 class="text-2xl font-bold mb-4">Monomarentalidad y Tecnopoética</h2>
+      <p class="text-white/80 mb-6">
+        Tesis de licenciatura que explora cómo la tecnopoética puede funcionar 
+        como herramienta de justicia social al visibilizar la problemática de 
+        las jefas de hogares monomarentales en Argentina. Una instalación 
+        multimedial inmersiva que traduce datos y testimonios en experiencia 
+        sensible mediante sonido espacial, visualizaciones y narrativa interactiva.
+      </p>
+
+      <!-- Ilustraciones - MOBILE FIRST -->
+      <div class="flex flex-col sm:flex-row gap-4 mb-6">
+        <img 
+          src="/images/tesis/boceto1.png" 
+          alt="Ilustración conceptual - Sobrecarga mental" 
+          class="rounded-lg w-full sm:w-64 h-auto hover:scale-105 transition-transform duration-300"
+        />
+        <img 
+          src="/images/tesis/boceto2.png" 
+          alt="Ilustración conceptual - Agotamiento" 
+          class="rounded-lg w-full sm:w-64 h-auto hover:scale-105 transition-transform duration-300"
+        />
+      </div>
+
+      <p class="text-white/60 text-sm italic mb-4">
+        Ilustraciones conceptuales: representación visual de la sobrecarga cognitiva y emocional
+      </p>
+
+      <div class="flex flex-col sm:flex-row gap-4">
+        <a 
+          href="#" 
+          class="inline-block px-4 py-2 bg-pink-500/20 text-pink-400 rounded-lg hover:bg-pink-500/30 transition text-center"
+        >
+          Ver presentación del proyecto →
+        </a>
+        <span class="inline-block px-4 py-2 bg-white/5 text-white/60 rounded-lg text-center">
+          Tesis en desarrollo
+        </span>
+      </div>
+    </section>
+
+    <!-- CURSO P5.JS -->
+    <section class="mb-16">
+      <h2 class="text-2xl font-bold mb-4">Curso de p5.js · PMII · UMAI</h2>
+      <p class="text-white/80 mb-6">
+        Proyecto pedagógico completo para enseñar programación creativa 
+        orientada al diseño. Incluye plan de estudios estructurado en 3 clases, 
+        materiales didácticos interactivos, repositorios de ejemplo y documentación 
+        de 13 piezas creadas durante el cuatrimestre.
+      </p>
+      
+      <details class="mb-6 bg-white/5 rounded-lg p-5 hover:bg-white/10 transition">
+        <summary class="cursor-pointer text-pink-400 font-semibold text-lg">
+          📚 Ver contenidos del curso
+        </summary>
+        <ul class="mt-4 text-white/70 space-y-2 ml-4">
+          <li><strong>Clase 1:</strong> Lienzo fullscreen, composición y color con figuras primitivas</li>
+          <li><strong>Clase 2:</strong> Gestión de medios (imágenes, audio, fuentes) y animación</li>
+          <li><strong>Clase 3:</strong> p5.Vector para movimiento e interacción (mouse/teclado)</li>
+          <li><strong>Material:</strong> 13 piezas + repositorios funcionales + muestra virtual</li>
+        </ul>
+      </details>
+      
+      <div class="flex flex-col sm:flex-row gap-4">
+        <a 
+          href="https://muestra-virtual-2025.vercel.app/" 
+          class="inline-block px-4 py-2 bg-pink-500 text-white rounded-lg hover:bg-pink-600 transition text-center"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Ver muestra virtual →
+        </a>
+        <a 
+          href="#" 
+          class="inline-block px-4 py-2 bg-pink-500/20 text-pink-400 rounded-lg hover:bg-pink-500/30 transition text-center"
+        >
+          Ver documentación completa →
+        </a>
+      </div>
+    </section>
+
+  </SiteLayout>
+</Base>
