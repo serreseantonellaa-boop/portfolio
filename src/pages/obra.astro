@@ -1,0 +1,295 @@
+---
+import Base from '../layouts/Base.astro';
+import SiteLayout from '../layouts/SiteLayout.astro';
+import DecorBanner from '../components/DecorBanner.astro';
+---
+<Base>
+  <SiteLayout>
+    <Fragment slot="decor"><DecorBanner /></Fragment>
+
+    <h1 class="text-3xl font-extrabold font-display text-left mb-20">Obra</h1>
+    
+    <style>
+      /* Ocultar "Ver más" cuando el details está abierto */
+      details[open] summary {
+        display: none;
+      }
+    </style>
+    
+    <!-- A MOVER LA BOCA -->
+    <article class="mb-16">
+      <!-- Layout responsive: columna en mobile, lado a lado en desktop -->
+      <div class="flex flex-col lg:flex-row lg:items-center gap-10 lg:px-12 lg:max-w-6xl lg:mx-auto">
+        <!-- Columna izquierda: Texto -->
+        <div class="flex-1 flex flex-col">
+          <h2 class="text-2xl font-bold mb-3 text-pink-400">A Mover la Boca</h2>
+          <p class="text-lg text-white/60 mb-4 italic">Controles alternativos que te ponen a saltar</p>
+          
+          <p class="text-white/80 mb-3">
+            Hecho en p5.js y ml5, este juego propone algo simple pero poco común: ¿y si el control no fuera un joystick ni un teclado, sino tu boca? La premisa es directa: comé 20 panchos o hamburguesas sin acumular 5 caquitas. Para lograrlo, tenés que moverte, saltar, girar - usar el cuerpo entero.
+          </p>
+          
+          <p class="text-white/80 mb-3">
+            La idea es volver el momento de jugar más dinámico y explorar qué pasa cuando el input es gestual, corporal, incómodo en el mejor sentido.
+          </p>
+          
+          <details class="text-white/80 mb-6">
+            <summary class="cursor-pointer text-pink-400 hover:text-pink-300 inline">
+              Ver más...
+            </summary>
+            <div class="mt-3 space-y-3">
+              <p>
+                El proyecto parte de una pregunta concreta: ¿qué nuevas formas de interacción habilita el tracking facial accesible? ml5 permite implementar controles alternativos sin instalar hardware específico - solo una webcam y un navegador.
+              </p>
+              <p>
+                El resultado es un juego que te obliga a pararte, moverte, coordinarte de formas raras. No es cómodo, y justamente por eso es interesante: cambia completamente la relación con la pantalla.
+              </p>
+            </div>
+            <button class="text-pink-400 hover:text-pink-300 mt-3 cursor-pointer" onclick="this.closest('details').removeAttribute('open')">
+              Ver menos
+            </button>
+          </details>
+
+          <!-- Botón para jugar -->
+          <div class="flex flex-col sm:flex-row gap-3">
+            <a 
+              href="https://juego2-p5ml5.vercel.app/" 
+              class="inline-block px-4 py-2 bg-pink-500 text-white rounded-lg hover:bg-pink-600 transition text-center text-sm"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Jugar ahora →
+            </a>
+          </div>
+        </div>
+
+        <!-- Columna derecha: Video + Epígrafe -->
+        <div class="flex-shrink-0 flex flex-col items-center lg:items-start lg:w-auto">
+          <video 
+            autoplay 
+            loop 
+            muted 
+            playsinline
+            class="rounded-lg w-full max-w-[200px] lg:max-w-[240px] h-auto mb-2"
+            style="max-height: 400px; object-fit: contain;"
+          >
+            <source src="/videos/juego-boca.mp4" type="video/mp4">
+          </video>
+          <p class="text-white/50 text-xs italic max-w-[200px] lg:max-w-[240px]">
+            Gameplay: control gestual con tracking facial
+          </p>
+        </div>
+      </div>
+    </article>
+
+    <!-- Separador -->
+    <div class="relative flex items-center justify-center mb-16 lg:px-12 lg:max-w-6xl lg:mx-auto">
+      <div class="absolute inset-0 flex items-center">
+        <div class="w-full border-t border-gradient" style="border-image: linear-gradient(90deg, transparent, rgb(236, 72, 153), transparent) 1;"></div>
+      </div>
+      <div class="relative px-4 bg-[#0b0b12]">
+        <span class="text-pink-400 text-xl">◆</span>
+      </div>
+    </div>
+
+    <!-- MAPPING -->
+    <article class="mb-16">
+      <!-- Layout responsive: columna en mobile, lado a lado en desktop -->
+      <div class="flex flex-col lg:flex-row lg:items-center gap-10 lg:px-12 lg:max-w-6xl lg:mx-auto">
+        <!-- Columna izquierda: Texto -->
+        <div class="flex-1 flex flex-col">
+          <h2 class="text-2xl font-bold mb-3 text-pink-400">Mapping con p5.js</h2>
+          <p class="text-lg text-white/60 mb-4 italic">Cuando lo digital se proyecta sobre lo analógico</p>
+          
+          <p class="text-white/80 mb-3">
+            Este proyecto exploraba una hipótesis rápida: ¿se puede mappear con p5.js y un proyector sin herramientas complejas? La respuesta fue sí. Sobre pinturas plásticas hechas a mano, proyecté figuras geométricas programadas en tiempo real.
+          </p>
+          
+          <p class="text-white/80 mb-3">
+            Lo digital (código) se mezcló con lo analógico (pintura física), y la composición visual se armaba en vivo, modificando parámetros del sketch mientras el mapping reaccionaba.
+          </p>
+          
+          <details class="text-white/80 mb-6">
+            <summary class="cursor-pointer text-pink-400 hover:text-pink-300 inline">
+              Ver más...
+            </summary>
+            <div class="mt-3 space-y-3">
+              <p>
+                El objetivo no era hacer un mapping profesional con software dedicado, sino probar que p5 puede funcionar como herramienta ágil para proyecciones en vivo. Figuras simples, colores reactivos, transformaciones geométricas - todo programado y ajustado sobre la marcha.
+              </p>
+              <p>
+                El resultado: una exploración de cómo lo programable puede dialogar con lo pintado, lo calculado con lo gestual, lo binario con lo matérico.
+              </p>
+            </div>
+            <button class="text-pink-400 hover:text-pink-300 mt-3 cursor-pointer" onclick="this.closest('details').removeAttribute('open')">
+              Ver menos
+            </button>
+          </details>
+        </div>
+
+        <!-- Columna derecha: Video + Epígrafe -->
+        <div class="flex-shrink-0 flex flex-col items-center lg:items-start lg:w-auto">
+          <video 
+            autoplay 
+            loop 
+            muted 
+            playsinline
+            class="rounded-lg w-full max-w-[250px] lg:max-w-[280px] h-auto mb-2"
+          >
+            <source src="/videos/mapping.mp4" type="video/mp4">
+          </video>
+          <p class="text-white/50 text-xs italic max-w-[250px] lg:max-w-[280px]">
+            Proyección en vivo sobre pintura física
+          </p>
+        </div>
+      </div>
+    </article>
+
+    <!-- Separador -->
+    <div class="relative flex items-center justify-center mb-16 lg:px-12 lg:max-w-6xl lg:mx-auto">
+      <div class="absolute inset-0 flex items-center">
+        <div class="w-full border-t border-gradient" style="border-image: linear-gradient(90deg, transparent, rgb(236, 72, 153), transparent) 1;"></div>
+      </div>
+      <div class="relative px-4 bg-[#0b0b12]">
+        <span class="text-pink-400 text-xl">◆</span>
+      </div>
+    </div>
+
+    <!-- SKETCH INTERACTIVO GENERATIVO -->
+    <article class="mb-16">
+      <!-- Layout responsive: columna en mobile, lado a lado en desktop -->
+      <div class="flex flex-col lg:flex-row lg:items-center gap-10 lg:px-12 lg:max-w-6xl lg:mx-auto">
+        <!-- Columna izquierda: Texto -->
+        <div class="flex-1 flex flex-col">
+          <h2 class="text-2xl font-bold mb-3 text-pink-400">Sketch interactivo generativo</h2>
+          <p class="text-lg text-white/60 mb-4 italic">Composición que responde al movimiento</p>
+          
+          <p class="text-white/80 mb-3">
+            Esta pieza explora la interacción gestual con geometría generativa. Pasás el mouse (o el dedo en mobile) y según el cuadrante donde te encuentres, cambian los parámetros: relleno, color, grosor de líneas. La composición se recalcula en tiempo real - cada movimiento genera un estado visual único.
+          </p>
+          
+          <details class="text-white/80 mb-6">
+            <summary class="cursor-pointer text-pink-400 hover:text-pink-300 inline">
+              Ver más...
+            </summary>
+            <div class="mt-3 space-y-3">
+              <p>
+                Inspirado en arte óptico y geométrico, el sketch propone una experiencia de co-creación: tu input no solo modifica la obra, sino que define su estado momentáneo. No hay dos composiciones iguales porque depende de dónde y cómo te muevas.
+              </p>
+              <p>
+                El código calcula todo sobre la marcha - posición, cuadrante, parámetros visuales - y traduce tu gesto en forma y color.
+              </p>
+            </div>
+            <button class="text-pink-400 hover:text-pink-300 mt-3 cursor-pointer" onclick="this.closest('details').removeAttribute('open')">
+              Ver menos
+            </button>
+          </details>
+
+          <!-- Botón para interactuar -->
+          <div class="flex flex-col sm:flex-row gap-3">
+            <a 
+              href="https://para-axel.vercel.app/" 
+              class="inline-block px-4 py-2 bg-pink-500 text-white rounded-lg hover:bg-pink-600 transition text-center text-sm"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Explorar sketch →
+            </a>
+          </div>
+        </div>
+
+        <!-- Columna derecha: Video + Epígrafe -->
+        <div class="flex-shrink-0 flex flex-col items-center lg:items-start lg:w-auto">
+          <video 
+            autoplay 
+            loop 
+            muted 
+            playsinline
+            class="rounded-lg w-full max-w-[250px] lg:max-w-[280px] h-auto mb-2"
+          >
+            <source src="/videos/sketch-interactivo.mp4" type="video/mp4">
+          </video>
+          <p class="text-white/50 text-xs italic max-w-[250px] lg:max-w-[280px]">
+            Interacción gestual con geometría generativa
+          </p>
+        </div>
+      </div>
+    </article>
+
+    <!-- Separador -->
+    <div class="relative flex items-center justify-center mb-16 lg:px-12 lg:max-w-6xl lg:mx-auto">
+      <div class="absolute inset-0 flex items-center">
+        <div class="w-full border-t border-gradient" style="border-image: linear-gradient(90deg, transparent, rgb(236, 72, 153), transparent) 1;"></div>
+      </div>
+      <div class="relative px-4 bg-[#0b0b12]">
+        <span class="text-pink-400 text-xl">◆</span>
+      </div>
+    </div>
+
+    <!-- VISUALIZADOR AUDIO-REACTIVO -->
+    <article class="mb-16">
+      <!-- Layout responsive: columna en mobile, lado a lado en desktop -->
+      <div class="flex flex-col lg:flex-row lg:items-center gap-10 lg:px-12 lg:max-w-6xl lg:mx-auto">
+        <!-- Columna izquierda: Texto -->
+        <div class="flex-1 flex flex-col">
+          <h2 class="text-2xl font-bold mb-3 text-pink-400">Visualizador audio-reactivo</h2>
+          <p class="text-lg text-white/60 mb-4 italic">Cuando el sonido se vuelve forma</p>
+          
+          <p class="text-white/80 mb-3">
+            Este sketch traduce amplitud de audio en tamaño visual. Iniciás con la tecla P, parás con S, y lo que escuchás se convierte en lo que ves: figuras geométricas que crecen y se contraen siguiendo la señal sonora. Cuanto más fuerte el sonido, más grandes las formas.
+          </p>
+          
+          <p class="text-white/80 mb-3">
+            Es una exploración simple pero directa de cómo mapear audio a parámetros visuales en tiempo real.
+          </p>
+          
+          <details class="text-white/80 mb-6">
+            <summary class="cursor-pointer text-pink-400 hover:text-pink-300 inline">
+              Ver más...
+            </summary>
+            <div class="mt-3 space-y-3">
+              <p>
+                El proyecto usa análisis de amplitud para controlar el tamaño de las figuras - sin efectos complejos ni visualizaciones de espectro, solo una relación uno-a-uno entre intensidad sonora y escala visual.
+              </p>
+              <p>
+                La idea es hacer visible algo invisible: el sonido traducido a geometría reactiva. Podés usar cualquier entrada de audio (música, voz, ruido ambiente) y ver cómo la composición responde.
+              </p>
+            </div>
+            <button class="text-pink-400 hover:text-pink-300 mt-3 cursor-pointer" onclick="this.closest('details').removeAttribute('open')">
+              Ver menos
+            </button>
+          </details>
+
+          <!-- Botón para explorar -->
+          <div class="flex flex-col sm:flex-row gap-3">
+            <a 
+              href="https://sonido-p5.vercel.app/" 
+              class="inline-block px-4 py-2 bg-pink-500 text-white rounded-lg hover:bg-pink-600 transition text-center text-sm"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Explorar visualizador →
+            </a>
+          </div>
+        </div>
+
+        <!-- Columna derecha: Video + Epígrafe -->
+        <div class="flex-shrink-0 flex flex-col items-center lg:items-start lg:w-auto">
+          <video 
+            autoplay 
+            loop 
+            muted 
+            playsinline
+            class="rounded-lg w-full max-w-[250px] lg:max-w-[280px] h-auto mb-2"
+          >
+            <source src="/videos/audio-reactivo.mp4" type="video/mp4">
+          </video>
+          <p class="text-white/50 text-xs italic max-w-[250px] lg:max-w-[280px]">
+            Geometría reactiva controlada por amplitud de audio
+          </p>
+        </div>
+      </div>
+    </article>
+
+  </SiteLayout>
+</Base>
