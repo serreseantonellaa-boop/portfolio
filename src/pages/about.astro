@@ -7,7 +7,350 @@ import DecorBanner from '../components/DecorBanner.astro';
   <SiteLayout>
     <Fragment slot="decor"><DecorBanner /></Fragment>
 
-    <h1 class="text-3xl font-extrabold font-display">About</h1>
-    <!-- contenido -->
+    <h1 class="text-3xl font-extrabold font-display text-left mb-20">About</h1>
+    
+    <style>
+      /* Ocultar "Ver más" cuando el details está abierto */
+      details[open] summary {
+        display: none;
+      }
+
+      /* Cursor pointer para elementos clickeables */
+      .cursor-pointer {
+        cursor: pointer;
+      }
+    </style>
+    
+    <!-- PRESENTACIÓN -->
+    <section class="mb-20">
+      <div class="flex flex-col lg:flex-row lg:items-start gap-10 lg:px-12 lg:max-w-6xl lg:mx-auto">
+        <!-- Columna izquierda: Texto -->
+        <div class="flex-1 flex flex-col">
+          <p class="text-white/80 mb-4">
+            Soy Profesora Adjunta en la Universidad Di Tella y Docente en Maimónides. En Di Tella doy Programación Orientada al Diseño. En Maimónides fui Ayudante de Cátedra durante 2023-2025 en distintas materias: Programación Multimedial I, II y III, Imagen Digital, Laboratorio de Maquetado, Laboratorio de Inputs y Outputs Poco Convencionales, entre otras, y este año arranco como Docente. También diseño experiencias interactivas: instalaciones, aplicaciones, obras que mezclan arte y tecnología.
+          </p>
+          
+          <p class="text-white/80 mb-4">
+            Mi enfoque está en bajar las barreras de acceso a la programación creativa: que cualquiera pueda materializar una idea sin que la sintaxis sea un obstáculo. La tecnología debería estar al servicio de la creatividad, no al revés.
+          </p>
+          
+          <p class="text-white/80 mb-4">
+            Mi formación arranca en el periodismo. De ahí pasé por la producción cultural, la gestión de eventos, la curaduría de arte, lo audiovisual. Todo ese recorrido se fusionó con la tecnología multimedial porque había algo en común: la comunicación. Comunicar para distintos medios, para distintos públicos, siempre explorando formas nuevas. Esa perspectiva integral - entender cómo se cuenta una historia, cómo se genera una experiencia, cómo se adapta el mensaje - es lo que traigo a cada proyecto que hago.
+          </p>
+          
+          <p class="text-white/80">
+            Trabajo con empatía, perfeccionismo y amor por lo que hago. Cada proyecto es una oportunidad para crear algo distintivo, algo que importe, algo que no sea convencional.
+          </p>
+        </div>
+
+        <!-- Columna derecha: Foto -->
+        <div class="flex-shrink-0 flex flex-col items-center lg:items-start lg:w-auto">
+          <!-- Espacio para foto - 300x300px cuadrado -->
+          <div class="w-[280px] h-[280px] lg:w-[300px] lg:h-[300px] bg-white/5 rounded-lg flex items-center justify-center">
+            <span class="text-white/40 text-sm">Foto</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- BIO COMPLETA (COLAPSABLE) -->
+    <section class="mb-20 lg:px-12 lg:max-w-6xl lg:mx-auto">
+      <details class="bg-white/5 rounded-lg p-6 hover:bg-white/10 transition">
+        <summary class="cursor-pointer text-pink-400 font-bold text-xl">
+          📖 Conocer más sobre mi historia
+        </summary>
+        <div class="mt-6 text-white/80 space-y-4">
+          <p>
+            El recorrido arranca en 2012, recién recibida de periodista. Los primeros pasos fueron en radio y televisión: productora y panelista en Radio Más Vida (Luján), después conductora de <em>Del Viso TV</em> en el canal provincial de Pilar. Esos años enseñaron algo que se quedó para siempre: cómo adaptar el discurso según quién está del otro lado, cómo sostener la atención sin forzarla, cómo comunicar con claridad pero sin perder calidez.
+          </p>
+          
+          <p>
+            Después vino Canal 7, la Televisión Pública, filmando y editando contenido institucional para la Facultad de Ciencias Económicas de la UBA. Ahí empezó a construirse algo: entender lo audiovisual no solo desde la comunicación, sino desde la producción técnica, desde el cómo se hace.
+          </p>
+          
+          <p>
+            En paralelo, el under porteño. Un grupo de amigos armamos <strong>MMAD</strong> (Make Me a Dancer), fiestas itinerantes donde el foco no era solo la música, sino crear experiencias. Diseñar juegos para que la gente interactuara entre sí, dinámicas pensadas, espacios donde los desconocidos se volvían cómplices de algo. No eran solo fiestas - eran laboratorios de encuentro. Los eventos llegaron a reunir 2000 personas. Después vino el rol de DJ también, porque todo formaba parte de la misma idea: crear algo completo, una atmósfera.
+          </p>
+          
+          <p>
+            Ese trabajo llevó a sumarse como socia a <strong>Azúcar MAG</strong>, una revista cultural online más galería de arte física, fundada en 2014/2015 cuando lo digital todavía no era lo masivo que es hoy. Como editora, coordinar 9 colaboradores, gestionar pases de prensa, corregir textos, definir qué publicar y qué no. También producir todo el contenido audiovisual: organizar las entrevistas, conducirlas, filmarlas, editarlas. La galería funcionaba en simultáneo - participación en la feria <strong>EGO</strong> con buena venta de obra, curaduría de muestras, trabajo como <em>merchant</em> de artistas, organizándoles toda la carrera: desde conseguir espacios hasta pensar estrategias de difusión.
+          </p>
+          
+          <p>
+            Después vino la productora propia para artistas emergentes. <em>Management</em> de bandas y artistas plásticos: conseguir fechas, organizarlas, gestionar cada detalle, filmar y editar todo. Hacer eventos que combinaban muestras de arte con música en vivo, porque siempre hubo algo claro: el arte funciona mejor cuando se mezcla, cuando dialoga con otros lenguajes. Uno de los proyectos que más resonó: trabajar con <strong>Gordon Raphael</strong>, el primer productor de The Strokes, organizándole una fecha con su banda de artistas argentinos más una muestra que mezclaba su obra con la de los artistas de la galería.
+          </p>
+          
+          <p>
+            También varios años como relaciones públicas de <strong>Unlock</strong> en Crobar, Barhein y Niceto Club. Todo esto - la producción cultural, la gestión de eventos, la curaduría, las RRPP - construyó herramientas que parecen alejadas de la programación pero son fundamentales: oratoria que se adapta, capacidad de coordinar equipos, conocimiento del mundo del arte y lo audiovisual desde adentro.
+          </p>
+          
+          <p>
+            En paralelo, la <strong>Licenciatura en Tecnología Multimedial</strong> en la Universidad Maimónides. Había una necesidad: materializar ideas de otras formas, encontrar nuevas herramientas. Todo ese bagaje previo - la comunicación, la producción cultural, la gestión, el amor por crear experiencias - se fusionó con la programación, el diseño UX/UI, el desarrollo web. Ahí apareció algo: el código como herramienta para crear, para resolver problemas de manera creativa, para aportar diseño que sea distintivo y no convencional.
+          </p>
+          
+          <p>
+            El enfoque es exploratorio, artístico. Instalaciones interactivas, aplicaciones que resuelvan problemas de forma creativa, experiencias que mezclen arte y tecnología. Todo el recorrido anterior - desde la radio hasta las fiestas, desde la galería hasta la producción audiovisual - construyó una perspectiva: comunicar para cualquier medio o plataforma, pero siempre con empatía, con perfeccionismo, con amor por lo que se hace. Porque cada proyecto, cada clase, cada código es una oportunidad para crear algo distintivo, algo que importe.
+          </p>
+        </div>
+        <button class="text-pink-400 hover:text-pink-300 mt-6 cursor-pointer" onclick="this.closest('details').removeAttribute('open')">
+          Ver menos
+        </button>
+      </details>
+    </section>
+
+    <!-- GRID DE PROYECTOS HISTÓRICOS -->
+    <section class="mb-20">
+      <h2 class="text-2xl font-bold mb-8 text-pink-400 lg:px-12 lg:max-w-6xl lg:mx-auto">Archivo</h2>
+      
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:px-12 lg:max-w-6xl lg:mx-auto">
+        
+        <!-- MMAD Card -->
+        <div class="bg-white/5 rounded-lg p-6 hover:bg-white/10 transition">
+          <div class="w-full h-40 bg-white/10 rounded mb-4 flex items-center justify-center overflow-hidden cursor-pointer" onclick="openModal('mmad')">
+            <img src="/images/mmad/m9.jpg" alt="MMAD" class="w-full h-full object-cover" />
+          </div>
+          <h3 class="text-xl font-bold text-pink-400 mb-2">MMAD</h3>
+          <p class="text-white/70 text-sm mb-3">Fiestas itinerantes, producción creativa y musicalización</p>
+          <div class="flex gap-2">
+            <button 
+              onclick="openModal('mmad')"
+              class="flex-1 px-3 py-2 bg-pink-500/20 text-pink-400 rounded text-sm hover:bg-pink-500/30 transition cursor-pointer">
+              Ver galería
+            </button>
+            <a 
+              href="https://youtu.be/GPskoZYaChg" 
+              target="_blank"
+              rel="noopener noreferrer"
+              class="flex-1 px-3 py-2 bg-pink-500/20 text-pink-400 rounded text-sm hover:bg-pink-500/30 transition text-center cursor-pointer">
+              Ver video →
+            </a>
+          </div>
+        </div>
+
+        <!-- Azúcar MAG Card -->
+        <div class="bg-white/5 rounded-lg p-6 hover:bg-white/10 transition cursor-pointer" onclick="openModal('azucar')">
+          <div class="w-full h-40 bg-white/10 rounded mb-4 flex items-center justify-center">
+            <span class="text-white/40 text-sm">Imagen Azúcar MAG</span>
+          </div>
+          <h3 class="text-xl font-bold text-pink-400 mb-2">Azúcar MAG</h3>
+          <p class="text-white/70 text-sm">Revista cultural + galería de arte</p>
+        </div>
+
+        <!-- Gordon Raphael Card -->
+        <div class="bg-white/5 rounded-lg p-6 hover:bg-white/10 transition cursor-pointer" onclick="openModal('gordon')">
+          <div class="w-full h-40 bg-white/10 rounded mb-4 flex items-center justify-center">
+            <span class="text-white/40 text-sm">Imagen Gordon Raphael</span>
+          </div>
+          <h3 class="text-xl font-bold text-pink-400 mb-2">Gordon Raphael</h3>
+          <p class="text-white/70 text-sm">Producción evento + muestra, productor de The Strokes</p>
+        </div>
+
+        <!-- Producción Cultural Card -->
+        <div class="bg-white/5 rounded-lg p-6 hover:bg-white/10 transition cursor-pointer" onclick="openModal('produccion')">
+          <div class="w-full h-40 bg-white/10 rounded mb-4 flex items-center justify-center">
+            <span class="text-white/40 text-sm">Imagen Producción</span>
+          </div>
+          <h3 class="text-xl font-bold text-pink-400 mb-2">Mambo Productions</h3>
+          <p class="text-white/70 text-sm">Management de artistas, eventos, contenido audiovisual</p>
+        </div>
+
+        <!-- Unlock Card -->
+        <div class="bg-white/5 rounded-lg p-6 hover:bg-white/10 transition cursor-pointer" onclick="openModal('unlock')">
+          <div class="w-full h-40 bg-white/10 rounded mb-4 flex items-center justify-center">
+            <span class="text-white/40 text-sm">Imagen Unlock</span>
+          </div>
+          <h3 class="text-xl font-bold text-pink-400 mb-2">Unlock RRPP</h3>
+          <p class="text-white/70 text-sm">Relaciones públicas Crobar, Barhein, Niceto Club</p>
+        </div>
+
+        <!-- Canal 7 Card -->
+        <div class="bg-white/5 rounded-lg p-6 hover:bg-white/10 transition cursor-pointer" onclick="openModal('canal7')">
+          <div class="w-full h-40 bg-white/10 rounded mb-4 flex items-center justify-center">
+            <span class="text-white/40 text-sm">Imagen Canal 7</span>
+          </div>
+          <h3 class="text-xl font-bold text-pink-400 mb-2">Canal 7 / Radio / TV</h3>
+          <p class="text-white/70 text-sm">Periodismo, producción, conducción</p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- MODAL MMAD -->
+    <div id="modal-mmad" class="hidden fixed inset-0 bg-black z-50 overflow-y-auto">
+      <div class="min-h-screen flex flex-col lg:flex-row">
+        
+        <!-- Botón cerrar -->
+        <button 
+          class="fixed top-3 right-3 sm:top-4 sm:right-4 z-10 text-pink-400 hover:text-pink-300 text-3xl leading-none bg-black/70 w-10 h-10 rounded-full flex items-center justify-center transition cursor-pointer"
+          onclick="closeModal('mmad')">
+          ×
+        </button>
+
+        <!-- Columna imagen -->
+        <div class="w-full lg:w-1/2 h-[45vh] lg:h-screen bg-black flex items-center justify-center p-4 sm:p-6">
+          <img 
+            id="mmad-slider-image" 
+            src="/images/mmad/m1.jpg" 
+            alt="MMAD" 
+            class="max-w-full max-h-full object-contain"
+          />
+        </div>
+
+        <!-- Columna texto -->
+        <div class="w-full lg:w-1/2 min-h-[55vh] lg:h-screen bg-[#0b0b12] flex flex-col justify-center p-6 sm:p-8 lg:p-12">
+          <h2 class="text-xl sm:text-2xl lg:text-3xl font-bold text-pink-400 mb-4 sm:mb-6">
+            MMAD - Make Me a Dancer
+          </h2>
+          
+          <!-- Textos rotando -->
+          <div class="relative mb-6" style="min-height: 120px;">
+            <div id="text-0" class="text-white/80 text-sm sm:text-base leading-relaxed absolute inset-0 opacity-100">
+              <p>Fiestas itinerantes para la escena under porteña que requerían contraseña para entrar. La contraseña se componía de una frase armada con las iniciales del nombre de la fiesta.</p>
+            </div>
+
+            <div id="text-1" class="text-white/80 text-sm sm:text-base leading-relaxed absolute inset-0 opacity-0">
+              <p>Una forma de crear comunidad y filtrar quién entraba. No era exclusión - era encontrar a los que compartían la vibra.</p>
+            </div>
+
+            <div id="text-2" class="text-white/80 text-sm sm:text-base leading-relaxed absolute inset-0 opacity-0">
+              <p>La premisa era simple: venir a bailar y pasarla bien, en un contexto donde la escena nocturna solo salía para que los fotógrafos les tomaran fotos.</p>
+            </div>
+
+            <div id="text-3" class="text-white/80 text-sm sm:text-base leading-relaxed absolute inset-0 opacity-0">
+              <p>Queríamos que vinieran los que realmente querían bailar. Sin poses, sin Instagram, solo música y movimiento.</p>
+            </div>
+
+            <div id="text-4" class="text-white/80 text-sm sm:text-base leading-relaxed absolute inset-0 opacity-0">
+              <p>Mi rol era la producción creativa: buscar lugares, organizar todo lo necesario, diseñar actividades para que la gente se conectara entre sí a pesar de no conocerse.</p>
+            </div>
+
+            <div id="text-5" class="text-white/80 text-sm sm:text-base leading-relaxed absolute inset-0 opacity-0">
+              <p>También DJ, diseño gráfico de flyers y comunicación visual. Todo formaba parte de crear una experiencia completa.</p>
+            </div>
+
+            <div id="text-6" class="text-white/80 text-sm sm:text-base leading-relaxed absolute inset-0 opacity-0">
+              <p>Los eventos llegaron a reunir 2000 personas en su momento de mayor auge.</p>
+            </div>
+          </div>
+
+          <!-- Periodo fijo -->
+          <p class="text-pink-400 font-bold mb-4 text-sm sm:text-base">
+            Periodo: 2011-2015
+          </p>
+
+          <!-- Indicadores -->
+          <div class="flex gap-2">
+            <div id="dot-0" class="w-2 h-2 rounded-full bg-pink-400"></div>
+            <div id="dot-1" class="w-2 h-2 rounded-full bg-pink-400/30"></div>
+            <div id="dot-2" class="w-2 h-2 rounded-full bg-pink-400/30"></div>
+            <div id="dot-3" class="w-2 h-2 rounded-full bg-pink-400/30"></div>
+            <div id="dot-4" class="w-2 h-2 rounded-full bg-pink-400/30"></div>
+            <div id="dot-5" class="w-2 h-2 rounded-full bg-pink-400/30"></div>
+            <div id="dot-6" class="w-2 h-2 rounded-full bg-pink-400/30"></div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <script is:inline>
+      const sliderData = [
+        { image: '/images/mmad/m1.jpg', textIndex: 0 },
+        { image: '/images/mmad/m2.jpg', textIndex: 0 },
+        { image: '/images/mmad/m3.jpg', textIndex: 1 },
+        { image: '/images/mmad/m4.jpg', textIndex: 1 },
+        { image: '/images/mmad/m5.jpg', textIndex: 2 },
+        { image: '/images/mmad/m6.jpg', textIndex: 2 },
+        { image: '/images/mmad/m7.jpg', textIndex: 3 },
+        { image: '/images/mmad/m8.jpg', textIndex: 3 },
+        { image: '/images/mmad/m9.jpg', textIndex: 4 },
+        { image: '/images/mmad/m10.jpg', textIndex: 4 },
+        { image: '/images/mmad/m11.jpg', textIndex: 5 },
+        { image: '/images/mmad/m12.jpg', textIndex: 5 },
+        { image: '/images/mmad/m13.jpg', textIndex: 6 },
+        { image: '/images/mmad/m14.jpg', textIndex: 6 }
+      ];
+      
+      let currentIndex = 0;
+      let currentTextIndex = 0;
+      let autoplayInterval = null;
+
+      function openModal(project) {
+        const modal = document.getElementById(`modal-${project}`);
+        if (!modal) return;
+        
+        modal.classList.remove('hidden');
+        document.body.style.overflow = 'hidden';
+        
+        currentIndex = 0;
+        currentTextIndex = 0;
+        
+        // Ocultar todos
+        for (let i = 0; i < 7; i++) {
+          const text = document.getElementById(`text-${i}`);
+          const dot = document.getElementById(`dot-${i}`);
+          if (text) text.style.opacity = '0';
+          if (dot) dot.style.opacity = '0.3';
+        }
+        
+        // Mostrar primeros
+        const img = document.getElementById('mmad-slider-image');
+        img.src = sliderData[0].image;
+        document.getElementById('text-0').style.opacity = '1';
+        document.getElementById('dot-0').style.opacity = '1';
+        
+        if (autoplayInterval) clearInterval(autoplayInterval);
+        autoplayInterval = setInterval(nextSlide, 2000);
+      }
+
+      function closeModal(project) {
+        const modal = document.getElementById(`modal-${project}`);
+        if (!modal) return;
+        
+        modal.classList.add('hidden');
+        document.body.style.overflow = '';
+        
+        if (autoplayInterval) {
+          clearInterval(autoplayInterval);
+          autoplayInterval = null;
+        }
+      }
+
+      function nextSlide() {
+        currentIndex = (currentIndex + 1) % sliderData.length;
+        const newSlide = sliderData[currentIndex];
+        
+        // Cambiar imagen
+        const img = document.getElementById('mmad-slider-image');
+        img.src = newSlide.image;
+        
+        // Cambiar texto solo si es diferente
+        if (newSlide.textIndex !== currentTextIndex) {
+          document.getElementById(`text-${currentTextIndex}`).style.opacity = '0';
+          document.getElementById(`dot-${currentTextIndex}`).style.opacity = '0.3';
+          
+          document.getElementById(`text-${newSlide.textIndex}`).style.opacity = '1';
+          document.getElementById(`dot-${newSlide.textIndex}`).style.opacity = '1';
+          
+          currentTextIndex = newSlide.textIndex;
+        }
+      }
+
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+          const modal = document.getElementById('modal-mmad');
+          if (modal && !modal.classList.contains('hidden')) {
+            closeModal('mmad');
+          }
+        }
+      });
+
+      document.getElementById('modal-mmad')?.addEventListener('click', (e) => {
+        if (e.target.id === 'modal-mmad') {
+          closeModal('mmad');
+        }
+      });
+    </script>
+
   </SiteLayout>
 </Base>
