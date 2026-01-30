@@ -175,7 +175,7 @@ import DecorBanner from '../components/DecorBanner.astro';
       </div>
     </section>
 
-    <!-- MODAL MMAD -->
+    <!-- MODAL MMAD - SIMPLE -->
     <div id="modal-mmad" class="hidden fixed inset-0 bg-black z-50 overflow-y-auto">
       <div class="min-h-screen flex flex-col lg:flex-row">
         
@@ -186,156 +186,90 @@ import DecorBanner from '../components/DecorBanner.astro';
           ×
         </button>
 
-        <!-- Columna imagen -->
-        <div class="w-full lg:w-1/2 h-[45vh] lg:h-screen bg-black flex items-center justify-center p-4 sm:p-6">
-          <img 
-            id="mmad-slider-image" 
-            src="/images/mmad/m1.jpg" 
-            alt="MMAD" 
-            class="max-w-full max-h-full object-contain"
-          />
+        <!-- Columna imagen - slider simple -->
+        <div class="w-full lg:w-1/2 h-[45vh] lg:h-screen bg-black flex items-center justify-center p-4 sm:p-6 relative">
+          <img id="img-0" src="/images/mmad/m1.jpg" alt="MMAD" class="absolute max-w-full max-h-full object-contain" />
+          <img id="img-1" src="/images/mmad/m2.jpg" alt="MMAD" class="absolute max-w-full max-h-full object-contain opacity-0" />
+          <img id="img-2" src="/images/mmad/m4.jpg" alt="MMAD" class="absolute max-w-full max-h-full object-contain opacity-0" />
+          <img id="img-3" src="/images/mmad/m7.jpg" alt="MMAD" class="absolute max-w-full max-h-full object-contain opacity-0" />
+          <img id="img-4" src="/images/mmad/m9.jpg" alt="MMAD" class="absolute max-w-full max-h-full object-contain opacity-0" />
+          <img id="img-5" src="/images/mmad/m11.jpg" alt="MMAD" class="absolute max-w-full max-h-full object-contain opacity-0" />
+          <img id="img-6" src="/images/mmad/m13.jpg" alt="MMAD" class="absolute max-w-full max-h-full object-contain opacity-0" />
         </div>
 
-        <!-- Columna texto -->
+        <!-- Columna texto - TEXTO FIJO -->
         <div class="w-full lg:w-1/2 min-h-[55vh] lg:h-screen bg-[#0b0b12] flex flex-col justify-center p-6 sm:p-8 lg:p-12">
           <h2 class="text-xl sm:text-2xl lg:text-3xl font-bold text-pink-400 mb-4 sm:mb-6">
             MMAD - Make Me a Dancer
           </h2>
           
-          <!-- Textos rotando -->
-          <div class="relative mb-6" style="min-height: 120px;">
-            <div id="text-0" class="text-white/80 text-sm sm:text-base leading-relaxed absolute inset-0 opacity-100">
-              <p>Fiestas itinerantes para la escena under porteña que requerían contraseña para entrar. La contraseña se componía de una frase armada con las iniciales del nombre de la fiesta.</p>
-            </div>
-
-            <div id="text-1" class="text-white/80 text-sm sm:text-base leading-relaxed absolute inset-0 opacity-0">
-              <p>Una forma de crear comunidad y filtrar quién entraba. No era exclusión - era encontrar a los que compartían la vibra.</p>
-            </div>
-
-            <div id="text-2" class="text-white/80 text-sm sm:text-base leading-relaxed absolute inset-0 opacity-0">
-              <p>La premisa era simple: venir a bailar y pasarla bien, en un contexto donde la escena nocturna solo salía para que los fotógrafos les tomaran fotos.</p>
-            </div>
-
-            <div id="text-3" class="text-white/80 text-sm sm:text-base leading-relaxed absolute inset-0 opacity-0">
-              <p>Queríamos que vinieran los que realmente querían bailar. Sin poses, sin Instagram, solo música y movimiento.</p>
-            </div>
-
-            <div id="text-4" class="text-white/80 text-sm sm:text-base leading-relaxed absolute inset-0 opacity-0">
-              <p>Mi rol era la producción creativa: buscar lugares, organizar todo lo necesario, diseñar actividades para que la gente se conectara entre sí a pesar de no conocerse.</p>
-            </div>
-
-            <div id="text-5" class="text-white/80 text-sm sm:text-base leading-relaxed absolute inset-0 opacity-0">
-              <p>También DJ, diseño gráfico de flyers y comunicación visual. Todo formaba parte de crear una experiencia completa.</p>
-            </div>
-
-            <div id="text-6" class="text-white/80 text-sm sm:text-base leading-relaxed absolute inset-0 opacity-0">
-              <p>Los eventos llegaron a reunir 2000 personas en su momento de mayor auge.</p>
-            </div>
+          <!-- Texto completo fijo -->
+          <div class="text-white/80 text-sm sm:text-base leading-relaxed space-y-3 mb-6">
+            <p>Fiestas itinerantes para la escena under porteña que requerían contraseña para entrar. Una forma de crear comunidad y filtrar quién entraba - no era exclusión, era encontrar a los que compartían la vibra.</p>
+            
+            <p>La premisa era simple: venir a bailar y pasarla bien, en un contexto donde la escena nocturna solo salía para que los fotógrafos les tomaran fotos. Queríamos que vinieran los que realmente querían bailar. Sin poses, sin Instagram, solo música y movimiento.</p>
+            
+            <p>Mi rol era la producción creativa: buscar lugares, organizar todo lo necesario, diseñar actividades para que la gente se conectara entre sí a pesar de no conocerse. También DJ, diseño gráfico de flyers y comunicación visual. Todo formaba parte de crear una experiencia completa.</p>
+            
+            <p>Los eventos llegaron a reunir 2000 personas en su momento de mayor auge.</p>
           </div>
 
           <!-- Periodo fijo -->
-          <p class="text-pink-400 font-bold mb-4 text-sm sm:text-base">
+          <p class="text-pink-400 font-bold text-sm sm:text-base">
             Periodo: 2011-2015
           </p>
-
-          <!-- Indicadores -->
-          <div class="flex gap-2">
-            <div id="dot-0" class="w-2 h-2 rounded-full bg-pink-400"></div>
-            <div id="dot-1" class="w-2 h-2 rounded-full bg-pink-400/30"></div>
-            <div id="dot-2" class="w-2 h-2 rounded-full bg-pink-400/30"></div>
-            <div id="dot-3" class="w-2 h-2 rounded-full bg-pink-400/30"></div>
-            <div id="dot-4" class="w-2 h-2 rounded-full bg-pink-400/30"></div>
-            <div id="dot-5" class="w-2 h-2 rounded-full bg-pink-400/30"></div>
-            <div id="dot-6" class="w-2 h-2 rounded-full bg-pink-400/30"></div>
-          </div>
         </div>
 
       </div>
     </div>
 
     <script is:inline>
-      const sliderData = [
-        { image: '/images/mmad/m1.jpg', textIndex: 0 },
-        { image: '/images/mmad/m2.jpg', textIndex: 0 },
-        { image: '/images/mmad/m3.jpg', textIndex: 1 },
-        { image: '/images/mmad/m4.jpg', textIndex: 1 },
-        { image: '/images/mmad/m5.jpg', textIndex: 2 },
-        { image: '/images/mmad/m6.jpg', textIndex: 2 },
-        { image: '/images/mmad/m7.jpg', textIndex: 3 },
-        { image: '/images/mmad/m8.jpg', textIndex: 3 },
-        { image: '/images/mmad/m9.jpg', textIndex: 4 },
-        { image: '/images/mmad/m10.jpg', textIndex: 4 },
-        { image: '/images/mmad/m11.jpg', textIndex: 5 },
-        { image: '/images/mmad/m12.jpg', textIndex: 5 },
-        { image: '/images/mmad/m13.jpg', textIndex: 6 },
-        { image: '/images/mmad/m14.jpg', textIndex: 6 }
-      ];
-      
       let currentIndex = 0;
-      let currentTextIndex = 0;
-      let autoplayInterval = null;
+      let interval = null;
 
       function openModal(project) {
-        const modal = document.getElementById(`modal-${project}`);
+        const modal = document.getElementById('modal-mmad');
         if (!modal) return;
         
         modal.classList.remove('hidden');
         document.body.style.overflow = 'hidden';
         
         currentIndex = 0;
-        currentTextIndex = 0;
+        showSlide(0);
         
-        // Ocultar todos
-        for (let i = 0; i < 7; i++) {
-          const text = document.getElementById(`text-${i}`);
-          const dot = document.getElementById(`dot-${i}`);
-          if (text) text.style.opacity = '0';
-          if (dot) dot.style.opacity = '0.3';
-        }
-        
-        // Mostrar primeros
-        const img = document.getElementById('mmad-slider-image');
-        img.src = sliderData[0].image;
-        document.getElementById('text-0').style.opacity = '1';
-        document.getElementById('dot-0').style.opacity = '1';
-        
-        if (autoplayInterval) clearInterval(autoplayInterval);
-        autoplayInterval = setInterval(nextSlide, 2000);
+        if (interval) clearInterval(interval);
+        interval = setInterval(() => {
+          currentIndex++;
+          if (currentIndex > 6) {
+            currentIndex = 0;
+          }
+          showSlide(currentIndex);
+        }, 2000);
       }
 
       function closeModal(project) {
-        const modal = document.getElementById(`modal-${project}`);
+        const modal = document.getElementById('modal-mmad');
         if (!modal) return;
         
         modal.classList.add('hidden');
         document.body.style.overflow = '';
         
-        if (autoplayInterval) {
-          clearInterval(autoplayInterval);
-          autoplayInterval = null;
+        if (interval) {
+          clearInterval(interval);
+          interval = null;
         }
       }
 
-      function nextSlide() {
-        currentIndex = (currentIndex + 1) % sliderData.length;
-        const newSlide = sliderData[currentIndex];
-        
-        // Cambiar imagen
-        const img = document.getElementById('mmad-slider-image');
-        img.src = newSlide.image;
-        
-        // Cambiar texto solo si es diferente
-        if (newSlide.textIndex !== currentTextIndex) {
-          document.getElementById(`text-${currentTextIndex}`).style.opacity = '0';
-          document.getElementById(`dot-${currentTextIndex}`).style.opacity = '0.3';
-          
-          document.getElementById(`text-${newSlide.textIndex}`).style.opacity = '1';
-          document.getElementById(`dot-${newSlide.textIndex}`).style.opacity = '1';
-          
-          currentTextIndex = newSlide.textIndex;
+      function showSlide(index) {
+        // Ocultar todas
+        for (let i = 0; i < 7; i++) {
+          document.getElementById(`img-${i}`).style.opacity = '0';
         }
+        // Mostrar actual
+        document.getElementById(`img-${index}`).style.opacity = '1';
       }
 
+      // ESC para cerrar
       document.addEventListener('keydown', (e) => {
         if (e.key === 'Escape') {
           const modal = document.getElementById('modal-mmad');
@@ -345,6 +279,7 @@ import DecorBanner from '../components/DecorBanner.astro';
         }
       });
 
+      // Click fuera para cerrar
       document.getElementById('modal-mmad')?.addEventListener('click', (e) => {
         if (e.target.id === 'modal-mmad') {
           closeModal('mmad');

@@ -70,7 +70,8 @@ import DecorBanner from '../components/DecorBanner.astro';
             loop 
             muted 
             playsinline
-            class="rounded-lg w-full max-w-[200px] lg:max-w-[240px] h-auto mb-2"
+            loading="lazy"
+            class="rounded-lg w-full max-w-[200px] lg:max-w-[240px] h-auto mb-2 lazy-video"
             style="max-height: 400px; object-fit: contain;"
           >
             <source src="/videos/juego-boca.mp4" type="video/mp4">
@@ -134,7 +135,8 @@ import DecorBanner from '../components/DecorBanner.astro';
             loop 
             muted 
             playsinline
-            class="rounded-lg w-full max-w-[250px] lg:max-w-[280px] h-auto mb-2"
+            loading="lazy"
+            class="rounded-lg w-full max-w-[250px] lg:max-w-[280px] h-auto mb-2 lazy-video"
           >
             <source src="/videos/mapping.mp4" type="video/mp4">
           </video>
@@ -205,7 +207,8 @@ import DecorBanner from '../components/DecorBanner.astro';
             loop 
             muted 
             playsinline
-            class="rounded-lg w-full max-w-[250px] lg:max-w-[280px] h-auto mb-2"
+            loading="lazy"
+            class="rounded-lg w-full max-w-[250px] lg:max-w-[280px] h-auto mb-2 lazy-video"
           >
             <source src="/videos/sketch-interactivo.mp4" type="video/mp4">
           </video>
@@ -280,7 +283,8 @@ import DecorBanner from '../components/DecorBanner.astro';
             loop 
             muted 
             playsinline
-            class="rounded-lg w-full max-w-[250px] lg:max-w-[280px] h-auto mb-2"
+            loading="lazy"
+            class="rounded-lg w-full max-w-[250px] lg:max-w-[280px] h-auto mb-2 lazy-video"
           >
             <source src="/videos/audio-reactivo.mp4" type="video/mp4">
           </video>
@@ -290,6 +294,26 @@ import DecorBanner from '../components/DecorBanner.astro';
         </div>
       </div>
     </article>
+
+    <!-- Script para pausar videos fuera de vista -->
+    <script is:inline>
+      // Pausar videos cuando no están visibles
+      const videos = document.querySelectorAll('.lazy-video');
+      
+      const videoObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.play();
+          } else {
+            entry.target.pause();
+          }
+        });
+      }, {
+        threshold: 0.5 // 50% visible para activar
+      });
+      
+      videos.forEach(video => videoObserver.observe(video));
+    </script>
 
   </SiteLayout>
 </Base>
