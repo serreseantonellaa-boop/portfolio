@@ -2,6 +2,69 @@
 import Base from '../layouts/Base.astro';
 import SiteLayout from '../layouts/SiteLayout.astro';
 import DecorBanner from '../components/DecorBanner.astro';
+
+// DATOS DE PROYECTOS - Array de objetos
+const projects = [
+  {
+    id: 'mmad',
+    title: 'MMAD',
+    subtitle: 'Fiestas itinerantes, producción creativa y musicalización',
+    periodo: '2011-2015',
+    images: 7,
+    imageFormat: 'jpg',
+    imagePath: '/images/mmad',
+    imageNames: ['m1', 'm2', 'm4', 'm7', 'm9', 'm11', 'm13'],
+    videoUrl: 'https://youtu.be/GPskoZYaChg',
+    cardImage: 'm9',
+    description: `
+      <p>Fiestas itinerantes para la escena under porteña que requerían contraseña para entrar. Una forma de crear comunidad y filtrar quién entraba - no era exclusión, era encontrar a los que compartían la vibra.</p>
+      
+      <p>La premisa era simple: venir a bailar y pasarla bien, en un contexto donde la escena nocturna solo salía para que los fotógrafos les tomaran fotos. Queríamos que vinieran los que realmente querían bailar. Sin poses, sin Instagram, solo música y movimiento.</p>
+      
+      <p>Mi rol era la producción creativa: buscar lugares, organizar todo lo necesario, diseñar actividades para que la gente se conectara entre sí a pesar de no conocerse. También DJ, diseño gráfico de flyers y comunicación visual. Todo formaba parte de crear una experiencia completa.</p>
+      
+      <p>Los eventos llegaron a reunir 2000 personas en su momento de mayor auge.</p>
+    `
+  },
+  {
+    id: 'azucar',
+    title: 'Azúcar MAG',
+    subtitle: 'Revista cultural + galería de arte',
+    periodo: '2014-2018',
+    images: 7,
+    imageFormat: 'webp',
+    imagePath: '/images/azucar',
+    imageNames: ['azucar1', 'azucar2', 'azucar3', 'azucar4', 'azucar5', 'azucar6', 'azucar7'],
+    videoUrl: 'https://www.youtube.com/watch?v=bBIa0ZReFXY',
+    cardImage: 'azucar2',
+    description: `
+      <p>Revista cultural online más galería de arte física, fundada en 2014/2015. Como editora, coordinaba 8 colaboradores: concretar qué notas se hacían, asignar el trabajo, revisar y corregir todo el contenido.</p>
+      
+      <p>También producción audiovisual completa: entrevistas a artistas donde fui conductora, productora y editora. Ese material está disponible en YouTube.</p>
+      
+      <p>Por el lado de la galería, organizaba la carrera artística de los artistas plásticos: coordinar muestras, concretar ventas, gestionar espacios. La participación en la feria EGO fue uno de los momentos más importantes - buena venta de obra y visibilidad para los artistas.</p>
+    `
+  },
+  {
+    id: 'gordon',
+    title: 'Gordon Raphael',
+    subtitle: 'Producción evento + muestra, productor de The Strokes',
+    periodo: '2016',
+    images: 7,
+    imageFormat: 'webp',
+    imagePath: '/images/gordon',
+    imageNames: ['gordon1', 'gordon2', 'gordon3', 'gordon4', 'gordon5', 'gordon6', 'gordon7'],
+    videoUrl: 'https://www.youtube.com/watch?v=IBYZG2jlnJM',
+    cardImage: 'gordon7',
+    description: `
+      <p>Contacté a Gordon para hacer una entrevista y, aprovechando que en ese momento tenía una productora propia, le ofrecí organizar un recital con su banda argentina Gordon Raphael and His Argentinan Brothers.</p>
+      
+      <p>También organicé una muestra que combinaba sus obras de arte con material audiovisual tomado por él durante sus años como productor de bandas como The Strokes y Regina Spektor.</p>
+      
+      <p>El evento mezcló música en vivo, arte plástico y archivo documental - una experiencia completa que dialogaba con su trayectoria como productor y artista.</p>
+    `
+  }
+];
 ---
 <Base>
   <SiteLayout>
@@ -10,12 +73,10 @@ import DecorBanner from '../components/DecorBanner.astro';
     <h1 class="text-3xl font-extrabold font-display text-left mb-20">About</h1>
     
     <style>
-      /* Ocultar "Ver más" cuando el details está abierto */
       details[open] summary {
         display: none;
       }
 
-      /* Cursor pointer para elementos clickeables */
       .cursor-pointer {
         cursor: pointer;
       }
@@ -24,7 +85,6 @@ import DecorBanner from '../components/DecorBanner.astro';
     <!-- PRESENTACIÓN -->
     <section class="mb-20">
       <div class="flex flex-col lg:flex-row lg:items-start gap-10 lg:px-12 lg:max-w-6xl lg:mx-auto">
-        <!-- Columna izquierda: Texto -->
         <div class="flex-1 flex flex-col">
           <p class="text-white/80 mb-4">
             Soy Profesora Adjunta en la Universidad Di Tella y Docente en Maimónides. En Di Tella doy Programación Orientada al Diseño. En Maimónides fui Ayudante de Cátedra durante 2023-2025 en distintas materias: Programación Multimedial I, II y III, Imagen Digital, Laboratorio de Maquetado, Laboratorio de Inputs y Outputs Poco Convencionales, entre otras, y este año arranco como Docente. También diseño experiencias interactivas: instalaciones, aplicaciones, obras que mezclan arte y tecnología.
@@ -43,9 +103,7 @@ import DecorBanner from '../components/DecorBanner.astro';
           </p>
         </div>
 
-        <!-- Columna derecha: Foto -->
         <div class="flex-shrink-0 flex flex-col items-center lg:items-start lg:w-auto">
-          <!-- Espacio para foto - 300x300px cuadrado -->
           <div class="w-[280px] h-[280px] lg:w-[300px] lg:h-[300px] bg-white/5 rounded-lg flex items-center justify-center">
             <span class="text-white/40 text-sm">Foto</span>
           </div>
@@ -98,202 +156,93 @@ import DecorBanner from '../components/DecorBanner.astro';
       </details>
     </section>
 
-    <!-- GRID DE PROYECTOS HISTÓRICOS -->
+    <!-- GRID DE PROYECTOS - DINÁMICO -->
     <section class="mb-20">
       <h2 class="text-2xl font-bold mb-8 text-pink-400 lg:px-12 lg:max-w-6xl lg:mx-auto">Archivo</h2>
       
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:px-12 lg:max-w-6xl lg:mx-auto">
         
-        <!-- MMAD Card -->
-        <div class="bg-white/5 rounded-lg p-6 hover:bg-white/10 transition">
-          <div class="w-full h-40 bg-white/10 rounded mb-4 flex items-center justify-center overflow-hidden cursor-pointer" onclick="openModal('mmad')">
-            <img src="/images/mmad/m9.jpg" alt="MMAD" class="w-full h-full object-cover" />
+        {projects.map(project => (
+          <div class="bg-white/5 rounded-lg p-6 hover:bg-white/10 transition">
+            <div class="w-full h-40 bg-white/10 rounded mb-4 flex items-center justify-center overflow-hidden cursor-pointer" onclick={`openModal('${project.id}')`}>
+              <img src={`${project.imagePath}/${project.cardImage}.${project.imageFormat}`} alt={project.title} class="w-full h-full object-cover" />
+            </div>
+            <h3 class="text-xl font-bold text-pink-400 mb-2">{project.title}</h3>
+            <p class="text-white/70 text-sm mb-3">{project.subtitle}</p>
+            <div class="flex gap-2">
+              <button 
+                onclick={`openModal('${project.id}')`}
+                class="flex-1 px-3 py-2 bg-pink-500/20 text-pink-400 rounded text-sm hover:bg-pink-500/30 transition cursor-pointer">
+                Ver galería
+              </button>
+              <a 
+                href={project.videoUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="flex-1 px-3 py-2 bg-pink-500/20 text-pink-400 rounded text-sm hover:bg-pink-500/30 transition text-center cursor-pointer">
+                Ver video →
+              </a>
+            </div>
           </div>
-          <h3 class="text-xl font-bold text-pink-400 mb-2">MMAD</h3>
-          <p class="text-white/70 text-sm mb-3">Fiestas itinerantes, producción creativa y musicalización</p>
-          <div class="flex gap-2">
-            <button 
-              onclick="openModal('mmad')"
-              class="flex-1 px-3 py-2 bg-pink-500/20 text-pink-400 rounded text-sm hover:bg-pink-500/30 transition cursor-pointer">
-              Ver galería
-            </button>
-            <a 
-              href="https://youtu.be/GPskoZYaChg" 
-              target="_blank"
-              rel="noopener noreferrer"
-              class="flex-1 px-3 py-2 bg-pink-500/20 text-pink-400 rounded text-sm hover:bg-pink-500/30 transition text-center cursor-pointer">
-              Ver video →
-            </a>
-          </div>
-        </div>
-
-        <!-- Azúcar MAG Card -->
-        <div class="bg-white/5 rounded-lg p-6 hover:bg-white/10 transition">
-          <div class="w-full h-40 bg-white/10 rounded mb-4 flex items-center justify-center overflow-hidden cursor-pointer" onclick="openModal('azucar')">
-            <img src="/images/azucar/azucar1.webp" alt="Azúcar MAG" class="w-full h-full object-cover" />
-          </div>
-          <h3 class="text-xl font-bold text-pink-400 mb-2">Azúcar MAG</h3>
-          <p class="text-white/70 text-sm mb-3">Revista cultural + galería de arte</p>
-          <div class="flex gap-2">
-            <button 
-              onclick="openModal('azucar')"
-              class="flex-1 px-3 py-2 bg-pink-500/20 text-pink-400 rounded text-sm hover:bg-pink-500/30 transition cursor-pointer">
-              Ver galería
-            </button>
-            <a 
-              href="https://www.youtube.com/watch?v=bBIa0ZReFXY" 
-              target="_blank"
-              rel="noopener noreferrer"
-              class="flex-1 px-3 py-2 bg-pink-500/20 text-pink-400 rounded text-sm hover:bg-pink-500/30 transition text-center cursor-pointer">
-              Ver video →
-            </a>
-          </div>
-        </div>
-
-        <!-- Gordon Raphael Card -->
-        <div class="bg-white/5 rounded-lg p-6 hover:bg-white/10 transition cursor-pointer" onclick="openModal('gordon')">
-          <div class="w-full h-40 bg-white/10 rounded mb-4 flex items-center justify-center">
-            <span class="text-white/40 text-sm">Imagen Gordon Raphael</span>
-          </div>
-          <h3 class="text-xl font-bold text-pink-400 mb-2">Gordon Raphael</h3>
-          <p class="text-white/70 text-sm">Producción evento + muestra, productor de The Strokes</p>
-        </div>
-
-        <!-- Producción Cultural Card -->
-        <div class="bg-white/5 rounded-lg p-6 hover:bg-white/10 transition cursor-pointer" onclick="openModal('produccion')">
-          <div class="w-full h-40 bg-white/10 rounded mb-4 flex items-center justify-center">
-            <span class="text-white/40 text-sm">Imagen Producción</span>
-          </div>
-          <h3 class="text-xl font-bold text-pink-400 mb-2">Mambo Productions</h3>
-          <p class="text-white/70 text-sm">Management de artistas, eventos, contenido audiovisual</p>
-        </div>
-
-        <!-- Unlock Card -->
-        <div class="bg-white/5 rounded-lg p-6 hover:bg-white/10 transition cursor-pointer" onclick="openModal('unlock')">
-          <div class="w-full h-40 bg-white/10 rounded mb-4 flex items-center justify-center">
-            <span class="text-white/40 text-sm">Imagen Unlock</span>
-          </div>
-          <h3 class="text-xl font-bold text-pink-400 mb-2">Unlock RRPP</h3>
-          <p class="text-white/70 text-sm">Relaciones públicas Crobar, Barhein, Niceto Club</p>
-        </div>
-
-        <!-- Canal 7 Card -->
-        <div class="bg-white/5 rounded-lg p-6 hover:bg-white/10 transition cursor-pointer" onclick="openModal('canal7')">
-          <div class="w-full h-40 bg-white/10 rounded mb-4 flex items-center justify-center">
-            <span class="text-white/40 text-sm">Imagen Canal 7</span>
-          </div>
-          <h3 class="text-xl font-bold text-pink-400 mb-2">Canal 7 / Radio / TV</h3>
-          <p class="text-white/70 text-sm">Periodismo, producción, conducción</p>
-        </div>
+        ))}
 
       </div>
     </section>
 
-    <!-- MODAL MMAD - SIMPLE -->
-    <div id="modal-mmad" class="hidden fixed inset-0 bg-black z-50 overflow-y-auto">
-      <div class="min-h-screen flex flex-col lg:flex-row">
-        
-        <!-- Botón cerrar -->
-        <button 
-          class="fixed top-3 right-3 sm:top-4 sm:right-4 z-10 text-pink-400 hover:text-pink-300 text-3xl leading-none bg-black/70 w-10 h-10 rounded-full flex items-center justify-center transition cursor-pointer"
-          onclick="closeModal('mmad')">
-          ×
-        </button>
-
-        <!-- Columna imagen - slider simple -->
-        <div class="w-full lg:w-1/2 h-[45vh] lg:h-screen bg-black flex items-center justify-center p-4 sm:p-6 relative">
-          <img id="img-0" src="/images/mmad/m1.jpg" alt="MMAD" class="absolute max-w-full max-h-full object-contain" />
-          <img id="img-1" src="/images/mmad/m2.jpg" alt="MMAD" class="absolute max-w-full max-h-full object-contain opacity-0" />
-          <img id="img-2" src="/images/mmad/m4.jpg" alt="MMAD" class="absolute max-w-full max-h-full object-contain opacity-0" />
-          <img id="img-3" src="/images/mmad/m7.jpg" alt="MMAD" class="absolute max-w-full max-h-full object-contain opacity-0" />
-          <img id="img-4" src="/images/mmad/m9.jpg" alt="MMAD" class="absolute max-w-full max-h-full object-contain opacity-0" />
-          <img id="img-5" src="/images/mmad/m11.jpg" alt="MMAD" class="absolute max-w-full max-h-full object-contain opacity-0" />
-          <img id="img-6" src="/images/mmad/m13.jpg" alt="MMAD" class="absolute max-w-full max-h-full object-contain opacity-0" />
-        </div>
-
-        <!-- Columna texto - TEXTO FIJO -->
-        <div class="w-full lg:w-1/2 min-h-[55vh] lg:h-screen bg-[#0b0b12] flex flex-col justify-center p-6 sm:p-8 lg:p-12">
-          <h2 class="text-xl sm:text-2xl lg:text-3xl font-bold text-pink-400 mb-4 sm:mb-6">
-            MMAD - Make Me a Dancer
-          </h2>
+    <!-- MODALES - DINÁMICOS -->
+    {projects.map(project => (
+      <div id={`modal-${project.id}`} class="hidden fixed inset-0 bg-black z-50 overflow-y-auto">
+        <div class="min-h-screen flex flex-col lg:flex-row">
           
-          <!-- Texto completo fijo -->
-          <div class="text-white/80 text-sm sm:text-base leading-relaxed space-y-3 mb-6">
-            <p>Fiestas itinerantes para la escena under porteña que requerían contraseña para entrar. Una forma de crear comunidad y filtrar quién entraba - no era exclusión, era encontrar a los que compartían la vibra.</p>
-            
-            <p>La premisa era simple: venir a bailar y pasarla bien, en un contexto donde la escena nocturna solo salía para que los fotógrafos les tomaran fotos. Queríamos que vinieran los que realmente querían bailar. Sin poses, sin Instagram, solo música y movimiento.</p>
-            
-            <p>Mi rol era la producción creativa: buscar lugares, organizar todo lo necesario, diseñar actividades para que la gente se conectara entre sí a pesar de no conocerse. También DJ, diseño gráfico de flyers y comunicación visual. Todo formaba parte de crear una experiencia completa.</p>
-            
-            <p>Los eventos llegaron a reunir 2000 personas en su momento de mayor auge.</p>
+          <button 
+            class="fixed top-3 right-3 sm:top-4 sm:right-4 z-10 text-pink-400 hover:text-pink-300 text-3xl leading-none bg-black/70 w-10 h-10 rounded-full flex items-center justify-center transition cursor-pointer"
+            onclick={`closeModal('${project.id}')`}>
+            ×
+          </button>
+
+          <div class="w-full lg:w-1/2 h-[45vh] lg:h-screen bg-black flex items-center justify-center p-4 sm:p-6 relative">
+            {project.imageNames.map((imgName, idx) => (
+              <img 
+                id={`${project.id}-img-${idx}`}
+                src={`${project.imagePath}/${imgName}.${project.imageFormat}`}
+                alt={project.title}
+                class={`absolute max-w-full max-h-full object-contain ${idx === 0 ? '' : 'opacity-0'}`}
+              />
+            ))}
           </div>
 
-          <!-- Periodo fijo -->
-          <p class="text-pink-400 font-bold text-sm sm:text-base">
-            Periodo: 2011-2015
-          </p>
-        </div>
-
-      </div>
-    </div>
-
-    <!-- MODAL AZÚCAR MAG -->
-    <div id="modal-azucar" class="hidden fixed inset-0 bg-black z-50 overflow-y-auto">
-      <div class="min-h-screen flex flex-col lg:flex-row">
-        
-        <!-- Botón cerrar -->
-        <button 
-          class="fixed top-3 right-3 sm:top-4 sm:right-4 z-10 text-pink-400 hover:text-pink-300 text-3xl leading-none bg-black/70 w-10 h-10 rounded-full flex items-center justify-center transition cursor-pointer"
-          onclick="closeModal('azucar')">
-          ×
-        </button>
-
-        <!-- Columna imagen - slider -->
-        <div class="w-full lg:w-1/2 h-[45vh] lg:h-screen bg-black flex items-center justify-center p-4 sm:p-6 relative">
-          <img id="azucar-img-0" src="/images/azucar/azucar1.webp" alt="Azúcar MAG" class="absolute max-w-full max-h-full object-contain" />
-          <img id="azucar-img-1" src="/images/azucar/azucar2.webp" alt="Azúcar MAG" class="absolute max-w-full max-h-full object-contain opacity-0" />
-          <img id="azucar-img-2" src="/images/azucar/azucar3.webp" alt="Azúcar MAG" class="absolute max-w-full max-h-full object-contain opacity-0" />
-          <img id="azucar-img-3" src="/images/azucar/azucar4.webp" alt="Azúcar MAG" class="absolute max-w-full max-h-full object-contain opacity-0" />
-          <img id="azucar-img-4" src="/images/azucar/azucar5.webp" alt="Azúcar MAG" class="absolute max-w-full max-h-full object-contain opacity-0" />
-          <img id="azucar-img-5" src="/images/azucar/azucar6.webp" alt="Azúcar MAG" class="absolute max-w-full max-h-full object-contain opacity-0" />
-          <img id="azucar-img-6" src="/images/azucar/azucar7.webp" alt="Azúcar MAG" class="absolute max-w-full max-h-full object-contain opacity-0" />
-        </div>
-
-        <!-- Columna texto - TEXTO FIJO -->
-        <div class="w-full lg:w-1/2 min-h-[55vh] lg:h-screen bg-[#0b0b12] flex flex-col justify-center p-6 sm:p-8 lg:p-12">
-          <h2 class="text-xl sm:text-2xl lg:text-3xl font-bold text-pink-400 mb-4 sm:mb-6">
-            Azúcar MAG
-          </h2>
-          
-          <!-- Texto completo fijo -->
-          <div class="text-white/80 text-sm sm:text-base leading-relaxed space-y-3 mb-6">
-            <p>Revista cultural online más galería de arte física, fundada en 2014/2015. Como editora, coordinaba 8 colaboradores: concretar qué notas se hacían, asignar el trabajo, revisar y corregir todo el contenido.</p>
+          <div class="w-full lg:w-1/2 min-h-[55vh] lg:h-screen bg-[#0b0b12] flex flex-col justify-center p-6 sm:p-8 lg:p-12">
+            <h2 class="text-xl sm:text-2xl lg:text-3xl font-bold text-pink-400 mb-4 sm:mb-6">
+              {project.title}
+            </h2>
             
-            <p>También producción audiovisual completa: entrevistas a artistas donde fui conductora, productora y editora. Ese material está disponible en YouTube.</p>
-            
-            <p>Por el lado de la galería, organizaba la carrera artística de los artistas plásticos: coordinar muestras, concretar ventas, gestionar espacios. La participación en la feria EGO fue uno de los momentos más importantes - buena venta de obra y visibilidad para los artistas.</p>
+            <div class="text-white/80 text-sm sm:text-base leading-relaxed space-y-3 mb-6" set:html={project.description} />
+
+            <p class="text-pink-400 font-bold text-sm sm:text-base">
+              Periodo: {project.periodo}
+            </p>
           </div>
 
-          <!-- Periodo fijo -->
-          <p class="text-pink-400 font-bold text-sm sm:text-base">
-            Periodo: 2014-2018
-          </p>
         </div>
-
       </div>
-    </div>
+    ))}
 
-    <script is:inline>
+    <script is:inline define:vars={{ projects }}>
+      // Configuración dinámica
+      const modalConfig = {};
+      projects.forEach(project => {
+        modalConfig[project.id] = {
+          images: project.images,
+          prefix: `${project.id}-img`
+        };
+      });
+
       let currentIndex = 0;
       let interval = null;
       let currentModal = null;
 
-      const modalConfig = {
-        'mmad': { images: 7, prefix: 'img' },
-        'azucar': { images: 7, prefix: 'azucar-img' }
-      };
-
-      function openModal(project) {
+      // FUNCIONES GLOBALES
+      window.openModal = function(project) {
         const modal = document.getElementById(`modal-${project}`);
         if (!modal) return;
         
@@ -309,9 +258,9 @@ import DecorBanner from '../components/DecorBanner.astro';
           currentIndex = (currentIndex + 1) % modalConfig[project].images;
           showSlide(project, currentIndex);
         }, 2000);
-      }
+      };
 
-      function closeModal(project) {
+      window.closeModal = function(project) {
         const modal = document.getElementById(`modal-${project}`);
         if (!modal) return;
         
@@ -323,30 +272,28 @@ import DecorBanner from '../components/DecorBanner.astro';
           clearInterval(interval);
           interval = null;
         }
-      }
+      };
 
       function showSlide(project, index) {
         const config = modalConfig[project];
-        // Ocultar todas
         for (let i = 0; i < config.images; i++) {
-          document.getElementById(`${config.prefix}-${i}`).style.opacity = '0';
+          const img = document.getElementById(`${config.prefix}-${i}`);
+          if (img) img.style.opacity = '0';
         }
-        // Mostrar actual
-        document.getElementById(`${config.prefix}-${index}`).style.opacity = '1';
+        const currentImg = document.getElementById(`${config.prefix}-${index}`);
+        if (currentImg) currentImg.style.opacity = '1';
       }
 
-      // ESC para cerrar
       document.addEventListener('keydown', (e) => {
         if (e.key === 'Escape' && currentModal) {
-          closeModal(currentModal);
+          window.closeModal(currentModal);
         }
       });
 
-      // Click fuera para cerrar
       document.querySelectorAll('[id^="modal-"]').forEach(modal => {
         modal.addEventListener('click', (e) => {
           if (e.target.id.startsWith('modal-')) {
-            closeModal(e.target.id.replace('modal-', ''));
+            window.closeModal(e.target.id.replace('modal-', ''));
           }
         });
       });
