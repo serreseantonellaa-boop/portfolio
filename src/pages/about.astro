@@ -128,12 +128,26 @@ import DecorBanner from '../components/DecorBanner.astro';
         </div>
 
         <!-- Azúcar MAG Card -->
-        <div class="bg-white/5 rounded-lg p-6 hover:bg-white/10 transition cursor-pointer" onclick="openModal('azucar')">
-          <div class="w-full h-40 bg-white/10 rounded mb-4 flex items-center justify-center">
-            <span class="text-white/40 text-sm">Imagen Azúcar MAG</span>
+        <div class="bg-white/5 rounded-lg p-6 hover:bg-white/10 transition">
+          <div class="w-full h-40 bg-white/10 rounded mb-4 flex items-center justify-center overflow-hidden cursor-pointer" onclick="openModal('azucar')">
+            <img src="/images/azucar/azucar1.webp" alt="Azúcar MAG" class="w-full h-full object-cover" />
           </div>
           <h3 class="text-xl font-bold text-pink-400 mb-2">Azúcar MAG</h3>
-          <p class="text-white/70 text-sm">Revista cultural + galería de arte</p>
+          <p class="text-white/70 text-sm mb-3">Revista cultural + galería de arte</p>
+          <div class="flex gap-2">
+            <button 
+              onclick="openModal('azucar')"
+              class="flex-1 px-3 py-2 bg-pink-500/20 text-pink-400 rounded text-sm hover:bg-pink-500/30 transition cursor-pointer">
+              Ver galería
+            </button>
+            <a 
+              href="https://www.youtube.com/watch?v=bBIa0ZReFXY" 
+              target="_blank"
+              rel="noopener noreferrer"
+              class="flex-1 px-3 py-2 bg-pink-500/20 text-pink-400 rounded text-sm hover:bg-pink-500/30 transition text-center cursor-pointer">
+              Ver video →
+            </a>
+          </div>
         </div>
 
         <!-- Gordon Raphael Card -->
@@ -223,36 +237,87 @@ import DecorBanner from '../components/DecorBanner.astro';
       </div>
     </div>
 
+    <!-- MODAL AZÚCAR MAG -->
+    <div id="modal-azucar" class="hidden fixed inset-0 bg-black z-50 overflow-y-auto">
+      <div class="min-h-screen flex flex-col lg:flex-row">
+        
+        <!-- Botón cerrar -->
+        <button 
+          class="fixed top-3 right-3 sm:top-4 sm:right-4 z-10 text-pink-400 hover:text-pink-300 text-3xl leading-none bg-black/70 w-10 h-10 rounded-full flex items-center justify-center transition cursor-pointer"
+          onclick="closeModal('azucar')">
+          ×
+        </button>
+
+        <!-- Columna imagen - slider -->
+        <div class="w-full lg:w-1/2 h-[45vh] lg:h-screen bg-black flex items-center justify-center p-4 sm:p-6 relative">
+          <img id="azucar-img-0" src="/images/azucar/azucar1.webp" alt="Azúcar MAG" class="absolute max-w-full max-h-full object-contain" />
+          <img id="azucar-img-1" src="/images/azucar/azucar2.webp" alt="Azúcar MAG" class="absolute max-w-full max-h-full object-contain opacity-0" />
+          <img id="azucar-img-2" src="/images/azucar/azucar3.webp" alt="Azúcar MAG" class="absolute max-w-full max-h-full object-contain opacity-0" />
+          <img id="azucar-img-3" src="/images/azucar/azucar4.webp" alt="Azúcar MAG" class="absolute max-w-full max-h-full object-contain opacity-0" />
+          <img id="azucar-img-4" src="/images/azucar/azucar5.webp" alt="Azúcar MAG" class="absolute max-w-full max-h-full object-contain opacity-0" />
+          <img id="azucar-img-5" src="/images/azucar/azucar6.webp" alt="Azúcar MAG" class="absolute max-w-full max-h-full object-contain opacity-0" />
+          <img id="azucar-img-6" src="/images/azucar/azucar7.webp" alt="Azúcar MAG" class="absolute max-w-full max-h-full object-contain opacity-0" />
+        </div>
+
+        <!-- Columna texto - TEXTO FIJO -->
+        <div class="w-full lg:w-1/2 min-h-[55vh] lg:h-screen bg-[#0b0b12] flex flex-col justify-center p-6 sm:p-8 lg:p-12">
+          <h2 class="text-xl sm:text-2xl lg:text-3xl font-bold text-pink-400 mb-4 sm:mb-6">
+            Azúcar MAG
+          </h2>
+          
+          <!-- Texto completo fijo -->
+          <div class="text-white/80 text-sm sm:text-base leading-relaxed space-y-3 mb-6">
+            <p>Revista cultural online más galería de arte física, fundada en 2014/2015. Como editora, coordinaba 8 colaboradores: concretar qué notas se hacían, asignar el trabajo, revisar y corregir todo el contenido.</p>
+            
+            <p>También producción audiovisual completa: entrevistas a artistas donde fui conductora, productora y editora. Ese material está disponible en YouTube.</p>
+            
+            <p>Por el lado de la galería, organizaba la carrera artística de los artistas plásticos: coordinar muestras, concretar ventas, gestionar espacios. La participación en la feria EGO fue uno de los momentos más importantes - buena venta de obra y visibilidad para los artistas.</p>
+          </div>
+
+          <!-- Periodo fijo -->
+          <p class="text-pink-400 font-bold text-sm sm:text-base">
+            Periodo: 2014-2018
+          </p>
+        </div>
+
+      </div>
+    </div>
+
     <script is:inline>
       let currentIndex = 0;
       let interval = null;
+      let currentModal = null;
+
+      const modalConfig = {
+        'mmad': { images: 7, prefix: 'img' },
+        'azucar': { images: 7, prefix: 'azucar-img' }
+      };
 
       function openModal(project) {
-        const modal = document.getElementById('modal-mmad');
+        const modal = document.getElementById(`modal-${project}`);
         if (!modal) return;
         
         modal.classList.remove('hidden');
         document.body.style.overflow = 'hidden';
+        currentModal = project;
         
         currentIndex = 0;
-        showSlide(0);
+        showSlide(project, 0);
         
         if (interval) clearInterval(interval);
         interval = setInterval(() => {
-          currentIndex++;
-          if (currentIndex > 6) {
-            currentIndex = 0;
-          }
-          showSlide(currentIndex);
+          currentIndex = (currentIndex + 1) % modalConfig[project].images;
+          showSlide(project, currentIndex);
         }, 2000);
       }
 
       function closeModal(project) {
-        const modal = document.getElementById('modal-mmad');
+        const modal = document.getElementById(`modal-${project}`);
         if (!modal) return;
         
         modal.classList.add('hidden');
         document.body.style.overflow = '';
+        currentModal = null;
         
         if (interval) {
           clearInterval(interval);
@@ -260,30 +325,30 @@ import DecorBanner from '../components/DecorBanner.astro';
         }
       }
 
-      function showSlide(index) {
+      function showSlide(project, index) {
+        const config = modalConfig[project];
         // Ocultar todas
-        for (let i = 0; i < 7; i++) {
-          document.getElementById(`img-${i}`).style.opacity = '0';
+        for (let i = 0; i < config.images; i++) {
+          document.getElementById(`${config.prefix}-${i}`).style.opacity = '0';
         }
         // Mostrar actual
-        document.getElementById(`img-${index}`).style.opacity = '1';
+        document.getElementById(`${config.prefix}-${index}`).style.opacity = '1';
       }
 
       // ESC para cerrar
       document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape') {
-          const modal = document.getElementById('modal-mmad');
-          if (modal && !modal.classList.contains('hidden')) {
-            closeModal('mmad');
-          }
+        if (e.key === 'Escape' && currentModal) {
+          closeModal(currentModal);
         }
       });
 
       // Click fuera para cerrar
-      document.getElementById('modal-mmad')?.addEventListener('click', (e) => {
-        if (e.target.id === 'modal-mmad') {
-          closeModal('mmad');
-        }
+      document.querySelectorAll('[id^="modal-"]').forEach(modal => {
+        modal.addEventListener('click', (e) => {
+          if (e.target.id.startsWith('modal-')) {
+            closeModal(e.target.id.replace('modal-', ''));
+          }
+        });
       });
     </script>
 
